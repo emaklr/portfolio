@@ -8,7 +8,8 @@ Core principles:
 - Server Components by default.
 - Client Components only where interactivity is required.
 - Static or dynamically rendered pages based on actual content needs.
-- 3D and animation code split into optional, deferred bundles.
+- The 3D-styled portrait is an optimised static asset; do not load a WebGL renderer just to display it.
+- Any future interactive 3D scene must be optional and deferred.
 - No client-side data fetching for content that can be rendered at build time.
 - Keep third-party scripts and dependencies minimal.
 - Use an external booking provider rather than building a scheduling system.
@@ -19,9 +20,9 @@ Core principles:
 |---|---|---|
 | Framework | Next.js App Router | Routing, metadata, server rendering, static generation and route handlers |
 | Language | TypeScript | Typed content models and safer refactoring |
-| Styling | Tailwind CSS | Consistent responsive implementation |
-| 3D | Three.js + React Three Fiber + Drei | Optional hero-level 3D experience |
-| Motion | Motion | Focused UI animation and interaction |
+| Styling | Custom global CSS and design tokens | Bespoke visual system with a small dependency footprint |
+| 3D | Optimised 3D-styled portrait image + CSS perspective | Distinctive visual identity without a WebGL runtime for v1 |
+| Motion | CSS transitions first; Motion only if later justified | Avoid shipping a motion dependency for simple effects |
 | Icons | Lucide React | Consistent icon system |
 | Forms | React Hook Form | Contact form state and validation UX |
 | Validation | Zod | Shared schema and server-side validation |
@@ -34,7 +35,7 @@ Core principles:
 | E2E testing | Playwright | Key journey and responsive browser testing |
 | Linting | ESLint | Static code quality checks |
 
-Versions will be selected at project initialisation based on stable, mutually compatible releases. Avoid installing libraries until they are needed.
+Initial implementation baseline: Next.js 16.4.6, React 19.3.1 and TypeScript 5.9.x, with Node.js 20.9 or later. The project currently uses CSS rather than Tailwind and does not install Three.js, React Three Fiber, Motion, a form library, Zod or Resend. Add those only when an approved feature requires them. The exact dependency versions are recorded in package.json.
 
 ## 3. Rendering and component strategy
 
@@ -53,7 +54,7 @@ Versions will be selected at project initialisation based on stable, mutually co
 - /projects/[slug] — detailed case study.
 - /api/contact — POST endpoint for optional contact form submission.
 
-Do not add a custom booking route or scheduler backend for v1. The booking action links to the selected provider. WhatsApp uses a click-to-chat link.
+Do not add a custom booking route or scheduler backend for v1. The booking action links to the selected provider when configured; until then it uses an email-draft fallback. WhatsApp uses a click-to-chat link. The homepage currently has direct email and WhatsApp actions; a contact form and its API endpoint remain optional future work.
 
 ## 5. Content model
 
@@ -90,7 +91,7 @@ Keep public, non-secret contact destinations in one typed configuration module:
 - Approved email and professional/social profile URLs.
 - CV document path.
 
-These values are public website content, not secrets. Do not invent placeholder destinations that accidentally ship to production. The booking URL, WhatsApp number and public identity must be approved before launch.
+These values are public website content, not secrets. Do not invent placeholder destinations that accidentally ship to production. The public name, email and WhatsApp number have been supplied and are centralised in src/data/site.ts. LinkedIn and X remain empty until final profile URLs are supplied. The discovery-call button currently uses an email-draft fallback; replace it with the selected scheduler URL before launch.
 
 ## 6. Contact endpoint
 
