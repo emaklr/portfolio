@@ -2,7 +2,7 @@ import { site } from "@/data/site";
 
 const discoveryHref =
   site.bookingUrl ||
-  "mailto:seundavid357@gmail.com?subject=Let%27s%20discuss%20a%20project";
+  "mailto:" + site.email + "?subject=Let%27s%20discuss%20a%20project";
 
 export function SiteHeader() {
   return (
