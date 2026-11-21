@@ -20,7 +20,9 @@ The light-first direction is settled. Do not reopen the light/dark/hybrid decisi
 - The site is the developer's personal portfolio, presented under the approved public name.
 - Use a clean text wordmark; a complicated logo is not required.
 - Abeeb Digital Studio is a separate business founded by the developer. Mention it discreetly in the About section or footer; it must not replace the personal identity in the header, hero, metadata or primary calls to action.
-- Use one approved professional avatar consistently in the hero and About section. It should look polished, approachable and credible, not like a caricature or stiff corporate stock portrait. Prefer a natural expression, modern smart-casual styling and a clean neutral treatment. Do not fabricate a likeness.
+- Use one approved professional photograph consistently in the hero and About section. It should look polished, approachable and credible, not like a caricature or stiff corporate stock portrait. Prefer a natural expression, modern smart-casual styling and a clean neutral treatment. Do not fabricate a likeness.
+- The current hero uses a clearly labelled initials placeholder inside a CSS perspective card. Keep this slot the same size when the real photo arrives so replacing the asset does not require redesigning the layout.
+- Once the photo is supplied, create a polished 3D-styled portrait image from that actual photo and use it as an optimised static asset. This is a rendered image, not a promise of a rigged, interactive 3D character. Keep the 3D treatment lightweight; do not introduce WebGL merely to display the portrait.
 
 ### Colour tokens
 
@@ -94,7 +96,7 @@ Follow the hero with a short, scannable summary of Website Development, Web Appl
 ### D. Selected work
 Feature Ritewheel Autos and FixTrust as the initial projects, subject to a fresh content and status check before publication.
 
-Each card includes a real screenshot or approved product image, project name, one-sentence explanation, problem addressed, developer's role, factual status label where useful, and a “View case study” link. Include a live product link only when the destination and current functionality have been verified.
+Each card includes a project image, project name, one-sentence explanation, problem addressed, developer's role, factual status label where useful, and a case-study link when the case study exists. The initial Ritewheel Autos and FixTrust cards use custom illustrated temporary preview artwork, labelled as placeholders. Replace these with real current screenshots before launch. Include a live product link only when the destination and current functionality have been verified.
 
 Use large editorial cards with consistent image ratios and restrained hover effects. Do not use mockups that obscure the real product. Do not invent clients, customers, revenue, adoption, testimonials or business impact.
 
@@ -154,7 +156,7 @@ Use real screenshots, short captions and a sensible image sequence. On mobile, i
 ## 6. Booking and WhatsApp interaction
 
 ### Discovery call
-- The primary booking CTA opens an external scheduling service such as Calendly or an equivalent provider. The provider is not yet selected.
+- The primary booking CTA is wired to a configurable external scheduling URL. Until that URL is configured, it temporarily opens an email draft to the approved address. Select Calendly or an equivalent provider and replace the fallback before public launch.
 - Prefer a clean booking page or a lightweight embedded scheduler only if the embed performs well on mobile. A normal external booking link is the fallback.
 - The scheduler must show availability in the Africa/Lagos timezone and display the visitor's timezone clearly where supported.
 - Meeting duration, weekly availability, buffer time, booking notice and confirmation settings must be configured before launch; do not invent these values.
@@ -165,7 +167,7 @@ Use real screenshots, short captions and a sensible image sequence. On mobile, i
 ### WhatsApp
 - The secondary WhatsApp action opens the approved contact number using a wa.me link.
 - Use a short pre-filled message such as: “Hi Seun, I found your portfolio and would like to discuss a project.”
-- The actual phone number must be provided and approved before launch.
+- The approved WhatsApp contact number is +234 816 701 4764. Keep it centralised in the site configuration and verify the click-to-chat link from desktop and mobile.
 - WhatsApp must not be the only contact route. Booking and approved email remain available.
 
 ## 7. Motion and 3D rules
