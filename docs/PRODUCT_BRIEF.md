@@ -52,7 +52,7 @@ Only advertise services and technologies that can be supported by real project e
 
 ## Primary conversion
 
-**Book a Discovery Call** is the primary action. It opens an external scheduling provider, to be selected before implementation, with availability configured for Africa/Lagos time.
+**Book a Discovery Call** is the primary action. It is designed to open an external scheduling provider with availability configured for Africa/Lagos time. Until the provider URL is configured, the current button opens an email draft to seundavid357@gmail.com. Replace this fallback before public launch.
 
 **Chat on WhatsApp** is the secondary action and opens a pre-filled message to the approved number, +234 816 701 4764. The public email is seundavid357@gmail.com.
 
