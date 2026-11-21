@@ -41,8 +41,8 @@ Initial implementation baseline: Next.js 16.4.6, React 19.3.1 and TypeScript 5.9
 
 - Homepage and project content should be Server Components wherever possible.
 - Project case studies should use static generation from typed local data.
-- Navigation, contact form and interactive 3D may be Client Components.
-- Load the 3D scene with dynamic import and an explicit static fallback.
+- Keep the header/navigation and page content server-rendered; the mobile menu uses native HTML details/summary.
+- The 3D-styled portrait is a static optimised image placed inside a CSS perspective composition. No client-side WebGL scene is required for v1.
 - Prefer CSS transitions for simple hover/focus states; do not use a JS animation library for every effect.
 - Do not hydrate sections that do not need browser interaction.
 - The booking CTA should normally be a normal external link. Consider an embedded scheduler only after measuring mobile performance and usability.
