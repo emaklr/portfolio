@@ -22,7 +22,7 @@ Use plain, confident language:
 
 ## 2. Brand presentation
 
-- The portfolio is under the developer's personal name.
+- The portfolio is under the developer's personal name: Babatunde Abeeb Seun.
 - Use the approved professional avatar consistently in the hero and About section.
 - Abeeb Digital Studio appears as a separate business founded by the developer. Keep it secondary in the About section or footer.
 - Do not present the portfolio as an Abeeb Digital Studio agency website.
@@ -51,7 +51,7 @@ Draft supporting copy:
 Primary CTA: “Book a Discovery Call”
 Secondary CTA: “Explore My Work”
 
-Use the professional avatar as the human focal point, with a restrained 3D visual as supporting decoration. Do not let visual effects delay or obscure the message.
+Use the professional avatar as the human focal point, with a restrained 3D visual as supporting decoration. Until the photo is supplied, show the clearly labelled initials placeholder. When it arrives, convert the actual photo into a 3D-styled rendered portrait and replace the asset without changing the layout.
 
 ### Capability summary
 Introduce the four core service areas:
@@ -65,7 +65,7 @@ Lead with projects that demonstrate breadth and ownership:
 - **Ritewheel Autos** — automotive marketplace / discovery product.
 - **FixTrust** — artisan and property-project marketplace.
 
-Each card should explain the product in one sentence and show a real product image. Link to a case study and only to a live product when the current destination and functionality have been checked.
+Each card should explain the product in one sentence and show a product image. The current cards use clearly labelled temporary illustrated artwork; replace it with real product screenshots later. Link to a case study and only to a live product when the current destination and functionality have been checked.
 
 ### Services
 Describe each service in terms of what a business can achieve. Explain tools and technologies in supporting detail rather than leading with a long list of frameworks.
@@ -99,7 +99,7 @@ Explain that the first conversation is a chance to understand the business and w
 Primary CTA: **Book a Discovery Call** — opens the selected scheduler.
 Secondary CTA: **Chat on WhatsApp** — opens WhatsApp with a pre-filled introduction.
 
-The booking provider and WhatsApp number must be configured and tested before launch. An optional short enquiry form may remain available, but do not force a long questionnaire.
+The WhatsApp contact is +234 816 701 4764 and the public email is seundavid357@gmail.com. The discovery-call button currently falls back to an email draft until a scheduling provider URL is configured. LinkedIn and X are visible as temporary “updating soon” placeholders until final profile URLs are supplied. An optional short enquiry form may remain available, but do not force a long questionnaire.
 
 ### Footer
 Include personal name/wordmark, concise role statement, key navigation, approved professional links, CV link and booking/WhatsApp contact actions. Abeeb Digital Studio remains secondary.
@@ -167,7 +167,9 @@ The downloadable PDF must be current, readable, ATS-friendly and aligned with th
 - Public repository links checked.
 - Correct project status and feature claims.
 - Current CV PDF.
-- Approved public name, email and social links.
+- Approved public name (Babatunde Abeeb Seun) and email (seundavid357@gmail.com).
+- Approved WhatsApp number (+234 816 701 4764).
+- Final LinkedIn and X profile URLs when available.
 - Booking provider URL and configured availability.
 - Approved WhatsApp contact number.
 - Any testimonials or metrics independently verified before use.
