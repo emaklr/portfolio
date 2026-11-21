@@ -8,38 +8,43 @@
 - [x] Establish core service areas: websites, web applications, backend/APIs and AI integration.
 - [x] Establish primary booking CTA and WhatsApp alternative.
 - [x] Define homepage, project and case-study experience.
-- [ ] Confirm public display name and approve professional avatar asset.
+- [x] Confirm public display name: Babatunde Abeeb Seun.
+- [ ] Supply and approve the professional portrait; convert it into a 3D-styled rendered image.
 - [ ] Verify Ritewheel and FixTrust feature/status claims.
 - [ ] Gather current screenshots and project links.
 - [ ] Prepare current CV PDF.
 - [ ] Select booking provider and configure Africa/Lagos availability.
-- [ ] Approve WhatsApp number and pre-filled message.
-- [ ] Confirm public email, professional/social links and domain.
+- [x] Approve WhatsApp number (+234 816 701 4764) and pre-filled message.
+- [x] Confirm public email (seundavid357@gmail.com).
+- [ ] Supply LinkedIn and X profile URLs and confirm the portfolio domain.
 - [ ] Finalise exact 3D visual asset/concept and design tokens against approved references.
 
 **Exit condition:** Product, content and visual requirements are approved; required assets and external contact destinations are available before implementation.
 
 ## Phase 1 — Project foundation
 
-- [ ] Initialise Next.js App Router with TypeScript.
-- [ ] Configure Tailwind and global design tokens from the approved light-first system.
-- [ ] Configure ESLint and formatting conventions.
-- [ ] Establish metadata, fonts and base layout.
-- [ ] Add reusable buttons, links, containers and section primitives.
-- [ ] Add typed public contact configuration.
+- [x] Initialise Next.js App Router with TypeScript.
+- [x] Add the light-first global CSS design tokens and responsive base styles (custom CSS; no Tailwind dependency).
+- [x] Configure ESLint.
+- [x] Establish metadata, Manrope font loading and root layout.
+- [x] Add reusable navigation and project-card components.
+- [x] Add typed public content and contact configuration.
 - [ ] Add CI checks for lint, typecheck and build.
+- [ ] Run and confirm local lint, typecheck and production build.
 
 **Exit condition:** Clean production build and responsive foundation.
 
 ## Phase 2 — Core homepage
 
-- [ ] Build navigation and mobile menu.
-- [ ] Build hero content, avatar composition and primary CTAs.
-- [ ] Implement capability summary and service sections.
-- [ ] Implement selected-project cards.
-- [ ] Build About section and CV link.
-- [ ] Build process and final contact sections.
-- [ ] Add footer and approved social links.
+- [x] Build responsive navigation and mobile menu.
+- [x] Build hero content, replaceable portrait composition and primary CTAs.
+- [x] Implement capability summary and service sections.
+- [x] Implement selected-project cards with temporary illustrations.
+- [x] Build About section; add the CV link when the approved PDF is available.
+- [x] Build process and final contact sections.
+- [x] Add footer and temporary LinkedIn/X placeholders.
+
+**Current status:** The first responsive homepage is in place. The hero portrait is a CSS placeholder, and the booking CTA still uses an email fallback.
 
 **Exit condition:** All key information and contact paths are available and usable without 3D.
 
@@ -70,7 +75,7 @@
 - [ ] Select and configure the external booking provider.
 - [ ] Add the Book a Discovery Call action to the header, hero and contact section.
 - [ ] Verify scheduler timezone, availability, booking questions and confirmation.
-- [ ] Add WhatsApp click-to-chat with the approved number and pre-filled message.
+- [x] Add WhatsApp click-to-chat with the approved number and pre-filled message.
 - [ ] Implement optional contact form.
 - [ ] Add server-side Zod validation.
 - [ ] Configure Resend securely.
