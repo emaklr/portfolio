@@ -1,4 +1,5 @@
 import { site } from "@/data/site";
+import { MobileNav } from "@/components/mobile-nav";
 
 const discoveryHref =
   site.bookingUrl ||
@@ -20,16 +21,7 @@ export function SiteHeader() {
         <a className="button button-small header-cta" href={discoveryHref}>
           Book a conversation <span aria-hidden="true">↗</span>
         </a>
-        <details className="mobile-nav">
-          <summary aria-label="Open navigation menu"><span /><span /></summary>
-          <nav aria-label="Mobile navigation">
-            <a href="#work">Work</a>
-            <a href="#services">Services</a>
-            <a href="#process">Process</a>
-            <a href="#about">About</a>
-            <a href={discoveryHref}>Book a conversation ↗</a>
-          </nav>
-        </details>
+        <MobileNav />
       </div>
     </header>
   );
