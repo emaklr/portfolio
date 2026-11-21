@@ -1,105 +1,263 @@
-# Design System and Performance Requirements
+# Design System, Experience Specification and Performance Requirements
 
-## 1. Design direction
+## 1. Design direction — locked
 
-The visual direction should feel premium, clear, confident, and modern. It must not resemble a generic developer template or an over-engineered 3D experiment.
+The portfolio uses a **light-first, premium editorial interface**. It should feel clear, confident, thoughtful and modern: a distinctive personal brand, not a generic developer template, an agency landing-page clone or a 3D experiment.
 
-### Theme exploration
-Evaluate three directions before locking tokens:
-- **Light:** clean, editorial, generous whitespace, strong typography, restrained accent.
-- **Dark:** high contrast, deep neutral surfaces, restrained accent, deliberate depth.
-- **Hybrid:** carefully selected contrast between sections, only if it improves hierarchy.
+The visual system uses:
+- A warm near-white canvas, white surfaces and deep ink typography.
+- A restrained cobalt-blue accent for primary actions and key details.
+- Strong editorial typography, generous whitespace and clear hierarchy.
+- Large, carefully composed product imagery.
+- A professional avatar as the human focal point.
+- One restrained 3D hero enhancement that supports the message rather than competing with it.
 
-The final choice should be based on readability, brand fit, screenshot quality, and usability—not novelty.
+The light-first direction is settled. Do not reopen the light/dark/hybrid decision or add a theme switcher to v1.
 
-### Visual principles
-- Strong typographic hierarchy.
-- Consistent spacing scale.
-- Clear content width and grid.
-- Predictable button and link behaviour.
-- Consistent focus, hover, active, disabled, and error states.
-- Colour contrast that meets WCAG AA for normal text.
-- No important meaning conveyed by colour alone.
+## 2. Brand and visual identity
 
-## 2. 3D and motion
+### Personal brand
+- The site is the developer's personal portfolio, presented under the approved public name.
+- Use a clean text wordmark; a complicated logo is not required.
+- Abeeb Digital Studio is a separate business founded by the developer. Mention it discreetly in the About section or footer; it must not replace the personal identity in the header, hero, metadata or primary calls to action.
+- Use one approved professional avatar consistently in the hero and About section. It should look polished, approachable and credible, not like a caricature or stiff corporate stock portrait. Prefer a natural expression, modern smart-casual styling and a clean neutral treatment. Do not fabricate a likeness.
 
-3D should add identity and memorability to the hero, not obstruct the message or primary actions.
+### Colour tokens
 
-Possible hero concept: one restrained abstract 3D object with controlled pointer interaction on capable desktop devices.
+| Token | Value | Use |
+|---|---|---|
+| Page background | #F7F8FA | Main canvas |
+| Surface | #FFFFFF | Cards, navigation and forms |
+| Primary text | #151B2B | Headings and important copy |
+| Secondary text | #626D80 | Supporting copy |
+| Accent | #3659E3 | Primary actions, links and highlights |
+| Accent hover | #2948C7 | Hover and pressed state |
+| Accent soft | #EEF2FF | Quiet emphasis and selected tags |
+| Border | #E4E8EF | Dividers, card edges and input borders |
+| Success | #18794E | Confirmation states |
+| Error | #B42318 | Validation and error states |
 
-Rules:
-- Static hero content must render immediately.
-- 3D must be a progressive enhancement.
-- Defer loading until after critical content and only when useful.
-- Use compressed geometry and textures; choose formats and model complexity based on measurements.
-- Avoid expensive post-processing and excessive real-time shadows.
-- Limit device pixel ratio and rendering resolution where necessary.
-- Pause rendering when the scene is not visible.
-- Disable pointer-driven effects on touch devices.
-- Respect `prefers-reduced-motion`.
-- Provide a static image/CSS fallback if WebGL is unavailable or the scene fails.
-- Avoid scroll hijacking, forced intro screens, and animations that delay access to content.
+Keep the accent restrained. Do not use gradients as a substitute for hierarchy. A subtle accent gradient may appear inside the 3D visual only if it survives contrast and performance checks.
 
-## 3. Responsive strategy
+### Typography and layout
+- Use Manrope as the primary type family with a system sans-serif fallback.
+- Load only the font weights actually used.
+- Use bold, compact display typography for the hero; body copy must remain highly readable.
+- Use sentence case for headings and buttons; avoid excessive uppercase labels.
+- Suggested responsive scale: hero headline clamp(2.7rem, 6.2vw, 5.6rem); page title clamp(2.3rem, 4.5vw, 4rem); section heading clamp(1.8rem, 3vw, 2.8rem); body 1rem–1.125rem.
+- Content max width: approximately 1200px. Main gutters: clamp(20px, 5vw, 76px).
+- Use a consistent 4px-based spacing scale, with 8px as the common rhythm.
+- Keep paragraph line length around 60–75 characters.
+- Use restrained card radii of approximately 16–22px and consistent smaller radii for buttons and fields.
+- Avoid excessive glassmorphism, floating cards, decorative blobs and nested containers.
 
-Design and test from small screens upward:
-- Small mobile: compact layout, readable text, touch-friendly controls, simplified visual effects.
-- Large mobile: preserve spacing and avoid excessive vertical bloat.
-- Tablet: adapt grids and navigation intentionally.
-- Desktop: use whitespace and larger project imagery without stretching text measure.
+## 3. Navigation and information architecture
 
-Do not rely on horizontal scrolling for primary content. Avoid hover-only interactions.
+Use a compact sticky header with the personal-name wordmark, Work, Services, Process and About links, and a prominent **Book a Discovery Call** action. Work links to the project listing; the other links can target homepage sections. Do not add empty pages just to fill navigation.
 
-## 4. Performance budgets and targets
+The mobile menu must be keyboard-operable, have a clear open/close state and close after navigation.
+
+Routes:
+- / — complete homepage.
+- /projects — selected work index.
+- /projects/[slug] — individual project case study.
+
+A separate About, Services, Contact or booking application is not required for v1.
+
+## 4. Homepage experience — section specification
+
+Keep the homepage in this order unless usability testing gives a clear reason to change it.
+
+### A. Header
+Keep the header visually quiet and immediately understandable. Use a solid or lightly translucent surface with a subtle bottom border when sticky. The booking action must remain easy to find without overpowering the wordmark or navigation.
+
+### B. Hero
+The first screen must answer who the developer is, what they build and what the visitor should do next.
+
+Draft content direction:
+- Eyebrow: “FULL-STACK DEVELOPER · WEB APPLICATIONS · AI INTEGRATION”
+- Headline: “I turn business ideas into useful digital products.”
+- Supporting copy: “I design and build fast, reliable websites and web applications, connect the systems businesses depend on, and add AI where it creates real value.”
+- Primary CTA: “Book a Discovery Call”
+- Secondary CTA: “Explore My Work”
+
+Composition:
+- Desktop: message and actions on one side; professional avatar with a supporting 3D visual on the other.
+- The avatar is the human focal point. The 3D visual is a restrained abstract composition inspired by connected modules or layered building blocks, suggesting ideas becoming working products.
+- Do not use a generic spinning globe, floating code symbols, random cubes or a full-screen 3D environment.
+- Mobile: message and primary action first; keep the avatar visible, simplify or remove 3D, and avoid a tall empty media block.
+- Message and links must render immediately whether or not 3D has loaded.
+
+### C. Capability summary
+Follow the hero with a short, scannable summary of Website Development, Web Applications, Backend & APIs, and AI Integration. This is not a row of invented client logos, metrics or testimonials.
+
+### D. Selected work
+Feature Ritewheel Autos and FixTrust as the initial projects, subject to a fresh content and status check before publication.
+
+Each card includes a real screenshot or approved product image, project name, one-sentence explanation, problem addressed, developer's role, factual status label where useful, and a “View case study” link. Include a live product link only when the destination and current functionality have been verified.
+
+Use large editorial cards with consistent image ratios and restrained hover effects. Do not use mockups that obscure the real product. Do not invent clients, customers, revenue, adoption, testimonials or business impact.
+
+### E. Services and capabilities
+Present four outcome-led service groups:
+1. **Website development** — professional responsive websites that help a business explain its offer and establish an effective online presence.
+2. **Web application development** — custom platforms, marketplaces, dashboards, booking flows and internal business tools.
+3. **Backend and API development** — application logic, data modelling, API design, integrations and secure workflows.
+4. **AI integration** — practical AI capabilities and workflow automation where they solve a real user or business problem.
+
+Explain tools in supporting detail, not as the headline. Only list technologies supported by actual project experience.
+
+### F. How I work
+Use a simple five-step process:
+1. Discover — understand the business, users and problem.
+2. Define — agree on scope, priorities, constraints and a delivery plan.
+3. Build — deliver in visible, reviewable increments.
+4. Test and refine — check real workflows, edge cases and usability.
+5. Launch and hand over — deploy, document and explain what happens next.
+
+The copy should reassure non-technical clients that they will understand what is happening and be involved. Do not promise timelines before scope is understood.
+
+### G. About
+Use a concise introduction and the same approved avatar, with a link to the CV. Explain the developer's practical product-building approach and full-stack focus. Present Abeeb Digital Studio as a separate business founded by the developer, with a discreet link or short note. Keep the biography factual and concise.
+
+### H. Contact and final conversion section
+Use a direct invitation such as “Have an idea you want to bring to life?” Explain that the first conversation is to understand the problem and explore what should be built, not pressure the visitor into a predefined package.
+
+Provide two clear paths:
+- Primary: **Book a Discovery Call** — opens the selected scheduling provider.
+- Secondary: **Chat on WhatsApp** — opens WhatsApp with a short pre-filled introduction.
+
+Keep any enquiry form optional and short. Do not require an account or a long project questionnaire before contact.
+
+### I. Footer
+Include the personal wordmark, concise role statement, navigation, approved professional/social links, CV link and another route to book a call or start a WhatsApp chat. Keep Abeeb Digital Studio secondary.
+
+## 5. Projects index and case-study experience
+
+### Projects index
+Introduce selected work with a clear title and short explanation. Use consistent cards with prominent screenshots. Let visitors open the case study or verified live product. Do not add filters until there are enough projects for filters to help.
+
+### Case-study page
+Use the same narrative structure on every project:
+1. Overview — what the product is and who it is for.
+2. Problem — the user or business need.
+3. Product approach — the solution and user journey.
+4. My contribution — what the developer personally built, integrated or maintained.
+5. Features — only verified functionality.
+6. Technical decisions — architecture, tools and meaningful trade-offs.
+7. Challenges and lessons — concrete engineering problems and how they were handled.
+8. Current status — clearly labelled deployed, in progress, prototype or another accurate status.
+9. Links — current live product and public source where appropriate.
+
+Use real screenshots, short captions and a sensible image sequence. On mobile, images must fit the viewport and the product story must come before deep technical detail.
+
+## 6. Booking and WhatsApp interaction
+
+### Discovery call
+- The primary booking CTA opens an external scheduling service such as Calendly or an equivalent provider. The provider is not yet selected.
+- Prefer a clean booking page or a lightweight embedded scheduler only if the embed performs well on mobile. A normal external booking link is the fallback.
+- The scheduler must show availability in the Africa/Lagos timezone and display the visitor's timezone clearly where supported.
+- Meeting duration, weekly availability, buffer time, booking notice and confirmation settings must be configured before launch; do not invent these values.
+- Ask only for details useful to prepare for the conversation, such as name, email and an optional short description of what they want to build.
+- Let the provider handle availability, confirmation, rescheduling and calendar invitations. Do not build a custom scheduling backend for v1.
+- Test the full journey, including unavailable dates, mobile layout and confirmation.
+
+### WhatsApp
+- The secondary WhatsApp action opens the approved contact number using a wa.me link.
+- Use a short pre-filled message such as: “Hi Seun, I found your portfolio and would like to discuss a project.”
+- The actual phone number must be provided and approved before launch.
+- WhatsApp must not be the only contact route. Booking and approved email remain available.
+
+## 7. Motion and 3D rules
+
+Motion should explain hierarchy, give feedback or add a small amount of personality. It must never delay reading or navigation.
+
+- Use CSS for simple hover, focus and state transitions.
+- Use the motion library only where it adds clear value.
+- Restrict scroll reveals to subtle, once-only entrances; content must remain visible when animation is disabled.
+- Avoid parallax on essential content, scroll hijacking, animated counters, autoplay video and forced intro sequences.
+- Dynamically load the 3D scene after critical content.
+- Provide a static fallback with the avatar and hero layout intact if WebGL is unavailable or the scene fails.
+- Pause the scene when off-screen; cap pixel ratio and rendering resolution.
+- Disable pointer-driven effects on touch devices and simplify the scene on lower-capability devices.
+- Respect prefers-reduced-motion and provide an equally complete non-animated experience.
+
+## 8. Responsive behaviour
+
+Design from small screens upward:
+- **Small mobile:** single-column content, message-first hero, visible primary CTA, simplified avatar/3D composition, touch targets of at least 44px and no horizontal overflow.
+- **Large mobile:** preserve comfortable gutters and avoid oversized empty media areas.
+- **Tablet:** use intentional two-column layouts only where text remains readable; adapt project cards instead of squeezing desktop cards.
+- **Desktop:** use whitespace and large project imagery while maintaining a readable text measure.
+
+No essential action may depend on hover. Test navigation, hero, project cards, case studies, booking, WhatsApp and CV download at real viewport sizes.
+
+## 9. Accessibility and interaction states
+
+- Use semantic landmarks and a logical heading hierarchy.
+- All navigation, buttons, forms and booking links must work by keyboard.
+- Show visible focus states.
+- Give every form control a programmatic label and associate validation errors with the relevant field.
+- Use meaningful alt text for informative images; mark decorative 3D content as decorative.
+- Meet WCAG AA contrast for normal text.
+- Do not rely on colour alone to communicate project status or form errors.
+- Respect reduced motion.
+- Provide clear loading, success and error feedback for form interactions.
+- Ensure menu and interactive states are announced appropriately to assistive technology.
+
+## 10. Performance targets and budgets
 
 Targets are acceptance criteria to measure, not claims to publish.
 
-### Core Web Vitals
-At the 75th percentile, target Google's good thresholds:
+Core Web Vitals at the 75th percentile:
 - LCP: <= 2.5 seconds.
 - INP: <= 200 milliseconds.
 - CLS: <= 0.1.
 
-### Lighthouse
-Aim for:
+Lighthouse aims:
 - Performance: 90+ mobile.
 - Accessibility: 95+.
 - Best Practices: 95+.
 - SEO: 95+.
 
-Lighthouse scores vary by environment. Use repeated production-build measurements and investigate regressions rather than optimising to one score.
+Scores vary by environment. Use repeated production-build measurements and investigate regressions rather than optimising to one score.
 
-### Implementation budgets
+Implementation rules:
 - Keep initial route JavaScript minimal.
-- Do not include the 3D renderer in the critical initial bundle.
-- Optimise images and provide responsive sizes.
-- Use modern image formats when supported by the image pipeline.
-- Reserve image and media dimensions to prevent layout shifts.
-- Subset/localise fonts where practical; prefer a small number of font files.
-- Avoid loading multiple font weights unnecessarily.
-- Avoid large background videos.
-- Third-party scripts must have a clear purpose and measured cost.
+- Do not put the 3D renderer in the critical initial bundle.
+- Optimise images and serve responsive dimensions.
+- Reserve image/media space to prevent layout shifts.
+- Prefer a small number of font files and weights.
+- Avoid large background videos and unnecessary third-party scripts.
+- Load analytics only after the privacy approach is reviewed.
+- Measure on mobile-class hardware and throttled connections, not only a high-end desktop.
+- If 3D causes a meaningful regression, simplify or remove it; content and avatar remain the priority.
 
-## 5. Accessibility
+## 11. Reusable component inventory
 
-- Semantic landmarks and heading order.
-- Keyboard-operable navigation and controls.
-- Visible focus indicators.
-- Correct labels and accessible validation feedback.
-- Meaningful alternative text for informative images.
-- Decorative imagery hidden from assistive technology.
-- Sufficient contrast.
-- Reduced motion support.
-- No essential information available only through animation or hover.
+- Header, desktop navigation and mobile navigation.
+- Primary, secondary and text buttons.
+- Section heading and content container.
+- Project card and project-status label.
+- Service card and process step.
+- Technology tag, used sparingly.
+- Avatar frame and 3D hero wrapper/fallback.
+- Booking CTA and WhatsApp CTA.
+- Contact field, validation message and confirmation state.
+- Footer and social link.
 
-## 6. Quality gates
+Do not create an abstraction for every text block. Reuse should make the system more consistent, not harder to understand.
 
-Before release:
-- Test at common mobile, tablet, and desktop viewport sizes.
-- Test keyboard-only navigation.
-- Test reduced-motion preference.
-- Test with WebGL disabled or unavailable.
-- Verify no horizontal overflow.
-- Verify form validation and error/success states.
-- Run production Lighthouse and Playwright checks.
-- Inspect real-device behaviour where possible.
+## 12. Release acceptance checklist
+
+- [ ] Light-first visual direction, personal identity and accent system are consistent across routes.
+- [ ] Homepage hierarchy and conversion paths work without 3D.
+- [ ] Avatar and project assets are approved and optimised.
+- [ ] Navigation and mobile menu work.
+- [ ] Project facts, statuses, screenshots and live links are verified.
+- [ ] Discovery-call scheduler works in Africa/Lagos timezone.
+- [ ] WhatsApp link uses the approved number and pre-filled message.
+- [ ] Keyboard, contrast, reduced-motion and no-WebGL checks pass.
+- [ ] No horizontal overflow at supported viewport sizes.
+- [ ] Production Lighthouse and Core Web Vitals are measured.
+- [ ] Booking, CV and contact journeys are tested on mobile and desktop.
