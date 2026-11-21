@@ -23,10 +23,10 @@ Core principles:
 | Styling | Custom global CSS and design tokens | Bespoke visual system with a small dependency footprint |
 | 3D | Optimised 3D-styled portrait image + CSS perspective | Distinctive visual identity without a WebGL runtime for v1 |
 | Motion | CSS transitions first; Motion only if later justified | Avoid shipping a motion dependency for simple effects |
-| Icons | Lucide React | Consistent icon system |
-| Forms | React Hook Form | Contact form state and validation UX |
-| Validation | Zod | Shared schema and server-side validation |
-| Email | Resend | Contact enquiry delivery |
+| Icons | Text arrows and lightweight inline SVG | Avoid an icon package for a small number of visual cues |
+| Forms | Native HTML controls initially | Keep the first contact experience simple; add a form library only if a form is implemented |
+| Validation | Server-side validation if a form is added | Validate untrusted input at the server boundary |
+| Email | Direct mailto link initially; provider integration only if a contact form is added | Avoid a backend until there is a demonstrated need |
 | Booking | Calendly or an equivalent provider (to be selected) | Availability, booking confirmation and calendar handling without a custom backend |
 | Direct contact | WhatsApp click-to-chat link | Simple alternative contact path |
 | Hosting | Vercel | Next.js deployment and preview environments |
@@ -121,7 +121,7 @@ These values are public website content, not secrets. Do not invent placeholder 
 - Build the click-to-chat link from the approved public phone number and encoded pre-filled message.
 - Keep it as a secondary contact action beside the booking action.
 - Verify the link from desktop and mobile, including devices without WhatsApp installed.
-- Do not expose a personal number until the developer explicitly approves it for public use.
+- The developer has approved +234 816 701 4764 for the public portfolio. Keep the number centralised in src/data/site.ts and verify the wa.me link before launch.
 
 ### Privacy
 - Collect only information needed to arrange the conversation.
