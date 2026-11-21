@@ -48,16 +48,16 @@
 
 **Exit condition:** All key information and contact paths are available and usable without 3D.
 
-## Phase 3 — 3D and motion enhancement
+## Phase 3 — Portrait asset and motion refinement
 
-- [ ] Prototype the restrained modular 3D hero visual independently.
-- [ ] Measure loading and runtime impact.
-- [ ] Add dynamic loading and static fallback.
-- [ ] Add reduced-motion and touch-device behaviour.
-- [ ] Add restrained transitions and scroll reveals.
-- [ ] Remove or simplify any effect that meaningfully harms performance.
+- [ ] Create a 3D-styled rendered portrait from the approved professional photo.
+- [ ] Replace the initials placeholder without changing the hero layout.
+- [ ] Optimise the final portrait image and provide responsive dimensions.
+- [ ] Review CSS perspective details and simplify them on mobile.
+- [ ] Add motion only where it improves feedback or hierarchy.
+- [ ] Test reduced-motion behaviour and verify the page remains complete without animation.
 
-**Exit condition:** Visual enhancement does not degrade core page performance or usability.
+**Exit condition:** The personal portrait feels distinctive while remaining a lightweight static asset; no WebGL runtime is required for the portrait.
 
 ## Phase 4 — Project case studies and CV
 
