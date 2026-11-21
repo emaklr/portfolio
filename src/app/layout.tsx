@@ -17,6 +17,7 @@ export const metadata: Metadata = {
   description:
     "I build websites, web applications, APIs and practical AI integrations that help businesses turn ideas into useful digital products.",
   applicationName: "Babatunde Abeeb Seun Portfolio",
+  icons: { icon: "/favicon.svg" },
   openGraph: {
     type: "website",
     title: "Babatunde Abeeb Seun — Full-stack Developer",
