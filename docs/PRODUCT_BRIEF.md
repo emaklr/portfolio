@@ -7,7 +7,8 @@ A high-performance personal portfolio that helps non-technical business owners u
 ## Brand identity
 
 - The website is a personal brand, not an agency homepage.
-- The public identity is the developer's own approved name and professional avatar.
+- The public identity is Babatunde Abeeb Seun, with a professional portrait to be supplied later.
+- Until the photo is ready, the homepage uses a clearly labelled replaceable initials placeholder. The photo can later be converted into a 3D-styled rendered portrait without delaying the rest of the build.
 - Abeeb Digital Studio is a separate business founded by the developer and appears as a secondary detail, not the main brand.
 - The site uses a light-first, premium editorial visual direction with a restrained 3D hero enhancement.
 - Do not add a theme switcher or reopen the light/dark/hybrid decision for v1.
@@ -53,7 +54,7 @@ Only advertise services and technologies that can be supported by real project e
 
 **Book a Discovery Call** is the primary action. It opens an external scheduling provider, to be selected before implementation, with availability configured for Africa/Lagos time.
 
-**Chat on WhatsApp** is the secondary action and opens a pre-filled message to the approved contact number.
+**Chat on WhatsApp** is the secondary action and opens a pre-filled message to the approved number, +234 816 701 4764. The public email is seundavid357@gmail.com.
 
 The first call is for understanding the business problem and discussing what should be built. It is not a commitment to a predefined package. Do not create a custom booking backend for v1.
 
@@ -91,6 +92,12 @@ The first call is for understanding the business problem and discussing what sho
 - Blog platform (can be reconsidered when there is a publishing need).
 - Unnecessary AI chatbot.
 - Heavy 3D environment or multiple always-running scenes.
+
+## Temporary assets and outstanding links
+
+- Ritewheel Autos and FixTrust currently use custom illustrated preview artwork. Both cards are visibly labelled temporary; real screenshots will replace them later.
+- LinkedIn and X are shown as “updating soon” until the final public profile URLs are supplied.
+- The updated CV and approved portrait remain to be added.
 
 ## Content integrity
 
