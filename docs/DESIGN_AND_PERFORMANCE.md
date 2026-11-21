@@ -84,11 +84,11 @@ Draft content direction:
 - Secondary CTA: “Explore My Work”
 
 Composition:
-- Desktop: message and actions on one side; professional avatar with a supporting 3D visual on the other.
-- The avatar is the human focal point. The 3D visual is a restrained abstract composition inspired by connected modules or layered building blocks, suggesting ideas becoming working products.
-- Do not use a generic spinning globe, floating code symbols, random cubes or a full-screen 3D environment.
-- Mobile: message and primary action first; keep the avatar visible, simplify or remove 3D, and avoid a tall empty media block.
-- Message and links must render immediately whether or not 3D has loaded.
+- Desktop: message and actions on one side; the 3D-styled professional portrait sits inside the supporting visual composition on the other.
+- The portrait is the human focal point. Use restrained CSS perspective, soft light and a few geometric layers to suggest depth without creating a full-screen 3D environment.
+- Do not use a generic spinning globe, floating code symbols, random cubes or gratuitous WebGL effects.
+- Mobile: message and primary action first; keep the portrait visible and simplify the surrounding composition.
+- Message, portrait image and links must render immediately; no scene loader is needed for a static portrait.
 
 ### C. Capability summary
 Follow the hero with a short, scannable summary of Website Development, Web Applications, Backend & APIs, and AI Integration. This is not a row of invented client logos, metrics or testimonials.
@@ -178,10 +178,9 @@ Motion should explain hierarchy, give feedback or add a small amount of personal
 - Use the motion library only where it adds clear value.
 - Restrict scroll reveals to subtle, once-only entrances; content must remain visible when animation is disabled.
 - Avoid parallax on essential content, scroll hijacking, animated counters, autoplay video and forced intro sequences.
-- Dynamically load the 3D scene after critical content.
-- Provide a static fallback with the avatar and hero layout intact if WebGL is unavailable or the scene fails.
-- Pause the scene when off-screen; cap pixel ratio and rendering resolution.
-- Disable pointer-driven effects on touch devices and simplify the scene on lower-capability devices.
+- Treat the 3D-styled portrait as a static optimised image asset; it does not need a WebGL renderer.
+- Keep CSS perspective layers decorative and lightweight. The portrait and core content must remain visible with CSS effects disabled.
+- Only consider a separate interactive 3D scene later if it adds a clear user benefit and passes performance testing.
 - Respect prefers-reduced-motion and provide an equally complete non-animated experience.
 
 ## 8. Responsive behaviour
@@ -233,7 +232,7 @@ Implementation rules:
 - Avoid large background videos and unnecessary third-party scripts.
 - Load analytics only after the privacy approach is reviewed.
 - Measure on mobile-class hardware and throttled connections, not only a high-end desktop.
-- If 3D causes a meaningful regression, simplify or remove it; content and avatar remain the priority.
+- If 3D styling causes a meaningful performance or readability regression, simplify or remove it; content and portrait remain the priority.
 
 ## 11. Reusable component inventory
 
@@ -259,7 +258,7 @@ Do not create an abstraction for every text block. Reuse should make the system 
 - [ ] Project facts, statuses, screenshots and live links are verified.
 - [ ] Discovery-call scheduler works in Africa/Lagos timezone.
 - [ ] WhatsApp link uses the approved number and pre-filled message.
-- [ ] Keyboard, contrast, reduced-motion and no-WebGL checks pass.
+- [ ] Keyboard, contrast and reduced-motion checks pass.
 - [ ] No horizontal overflow at supported viewport sizes.
 - [ ] Production Lighthouse and Core Web Vitals are measured.
 - [ ] Booking, CV and contact journeys are tested on mobile and desktop.
