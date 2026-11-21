@@ -2,19 +2,42 @@
 
 ## Purpose
 
-A high-performance personal portfolio that helps non-technical business owners understand what the developer can build, trust the delivery process, and start a conversation. It should also give employers and technical reviewers enough evidence to assess engineering ability.
+A high-performance personal portfolio that helps non-technical business owners understand what the developer can build, trust the delivery process, and book a conversation about their needs. It should also give employers and technical reviewers enough evidence to assess engineering ability.
+
+## Brand identity
+
+- The website is a personal brand, not an agency homepage.
+- The public identity is the developer's own approved name and professional avatar.
+- Abeeb Digital Studio is a separate business founded by the developer and appears as a secondary detail, not the main brand.
+- The site uses a light-first, premium editorial visual direction with a restrained 3D hero enhancement.
+- Do not add a theme switcher or reopen the light/dark/hybrid decision for v1.
 
 ## Primary audience
 
-1. **Non-technical business owners and founders** — need outcomes, clarity, credibility, and an easy way to enquire.
-2. **Hiring managers and recruiters** — need evidence of practical engineering, ownership, and technical range.
+1. **Non-technical business owners and founders** — need outcomes, clarity, credibility and an easy way to discuss an idea.
+2. **Hiring managers and recruiters** — need evidence of practical engineering, ownership and technical range.
 3. **Technical peers and collaborators** — need clear project context and implementation details.
+
+The first audience informs the main messaging and booking journey. The site must still provide enough technical depth for the second and third audiences.
 
 ## Positioning
 
-Full-stack developer building practical web applications, marketplaces, and AI-enabled products.
+Full-stack developer building websites, web applications, APIs and AI-enabled integrations.
 
-The exact headline and supporting copy will be refined after the design direction and content inventory are approved. Avoid inflated claims, unverified metrics, or describing planned functionality as shipped.
+Draft positioning statement:
+
+“I help businesses turn ideas and operational challenges into practical digital solutions — from professional websites and custom web applications to backend systems, API integrations and AI-powered features.”
+
+Lead with the business problem and result. Technologies support the explanation; they are not the main value proposition.
+
+## Service areas
+
+1. **Website development** — professional, responsive business websites.
+2. **Web application development** — custom platforms, marketplaces, dashboards, booking flows and internal tools.
+3. **Backend and API development** — backend systems, databases, application logic, API design and third-party integrations.
+4. **AI integration** — practical AI features and workflow automation where they solve a real problem.
+
+Only advertise services and technologies that can be supported by real project evidence.
 
 ## Product goals
 
@@ -22,18 +45,27 @@ The exact headline and supporting copy will be refined after the design directio
 - Demonstrate real products through live links and detailed case studies.
 - Translate technical work into business-relevant outcomes.
 - Establish trust through honest project details and clear ownership.
-- Make contacting the developer effortless.
+- Make it easy to book a discovery call or start a WhatsApp conversation.
 - Provide a downloadable CV.
 - Load quickly and work exceptionally well across screen sizes.
+
+## Primary conversion
+
+**Book a Discovery Call** is the primary action. It opens an external scheduling provider, to be selected before implementation, with availability configured for Africa/Lagos time.
+
+**Chat on WhatsApp** is the secondary action and opens a pre-filled message to the approved contact number.
+
+The first call is for understanding the business problem and discussing what should be built. It is not a commitment to a predefined package. Do not create a custom booking backend for v1.
 
 ## Success criteria
 
 - Visitors can identify the developer's services and value proposition quickly.
-- Featured projects have clear descriptions, screenshots, technology details, and accurate status.
-- Contact actions work and are easy to find.
+- Featured projects have clear descriptions, screenshots, technology details and accurate status.
+- Discovery-call booking works from desktop and mobile.
+- WhatsApp opens the approved number with a useful pre-filled message.
 - CV download works.
-- Mobile, keyboard, and reduced-motion experiences are fully usable.
-- Performance is measured on production builds and on mobile-class devices.
+- Mobile, keyboard and reduced-motion experiences are fully usable.
+- Performance is measured on production builds and mobile-class devices.
 
 ## Scope for v1
 
@@ -43,23 +75,26 @@ The exact headline and supporting copy will be refined after the design directio
 - Individual project case studies.
 - About and technical capabilities sections.
 - Development process section.
-- Contact form and direct contact links.
+- Discovery-call booking link or lightweight provider integration.
+- WhatsApp contact action.
+- Optional short contact form.
 - Downloadable CV.
 - SEO metadata and social preview.
-- Lightweight analytics.
+- Lightweight analytics after privacy review.
 - Carefully scoped 3D / motion enhancement with fallbacks.
 
 ### Excluded for v1
 - CMS or admin dashboard.
 - User accounts and authentication.
 - Database.
+- Custom booking/scheduling backend.
 - Blog platform (can be reconsidered when there is a publishing need).
 - Unnecessary AI chatbot.
 - Heavy 3D environment or multiple always-running scenes.
 
 ## Content integrity
 
-Ritewheel Autos and FixTrust are the initial featured projects. Case studies must distinguish completed, deployed, tested, experimental, and planned capabilities. Any screenshots, performance figures, customer numbers, or commercial outcomes must be verified before publication.
+Ritewheel Autos and FixTrust are the initial featured projects. Case studies must distinguish completed, deployed, tested, experimental and planned capabilities. Any screenshots, performance figures, customer numbers, commercial outcomes or testimonials must be verified before publication.
 
 ## Product principles
 
@@ -70,3 +105,4 @@ Ritewheel Autos and FixTrust are the initial featured projects. Case studies mus
 5. Progressive enhancement: core content works without JavaScript-heavy effects.
 6. Accessible interactions and motion.
 7. Keep the architecture proportionate to the problem.
+8. Make the next step a conversation, not a long sales form.
