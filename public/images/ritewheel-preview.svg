@@ -1,10 +1,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="820" viewBox="0 0 1200 820" fill="none">
-<defs><linearGradient id="bg" x1="120" y1="40" x2="1040" y2="790"><stop stop-color="#EEF3FF"/><stop offset="1" stop-color="#D5E0FF"/></linearGradient><linearGradient id="car" x1="320" y1="350" x2="850" y2="565"><stop stop-color="#3659E3"/><stop offset="1" stop-color="#1E347F"/></linearGradient><linearGradient id="glass" x1="490" y1="305" x2="765" y2="425"><stop stop-color="#B8D4F6"/><stop offset="1" stop-color="#6688C9"/></linearGradient></defs>
-<path fill="url(#bg)" d="M0 0h1200v820H0z"/><circle cx="934" cy="190" r="180" fill="#fff" fill-opacity=".34"/><circle cx="175" cy="650" r="210" fill="#fff" fill-opacity=".36"/><path d="M0 590c180-65 340-86 515-61 224 33 434 35 685-44v335H0V590Z" fill="#C5D3FA" fill-opacity=".5"/>
-<rect x="76" y="66" width="1048" height="688" rx="30" fill="#fff" fill-opacity=".45" stroke="#fff" stroke-opacity=".85"/>
-<text x="124" y="135" fill="#65769F" font-family="Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="4">RITEWHEEL AUTOS</text><text x="124" y="195" fill="#17264F" font-family="Arial,sans-serif" font-size="54" font-weight="700">Find your next drive.</text><text x="126" y="233" fill="#7381A0" font-family="Arial,sans-serif" font-size="20">A temporary visual preview for the automotive project.</text>
-<ellipse cx="620" cy="585" rx="355" ry="58" fill="#1D3477" fill-opacity=".17"/>
-<path d="M292 523c19-63 76-113 154-137l99-98c27-27 61-42 99-42h131c46 0 91 20 122 55l86 96c50 10 87 42 101 94l18 72c5 19-9 37-29 37H310c-29 0-49-28-40-56l22-21Z" fill="url(#car)"/>
-<path d="m570 312-94 92h445l-77-87c-18-20-44-31-71-31H634c-24 0-47 9-64 26Z" fill="url(#glass)" stroke="#DDE8FF" stroke-width="10"/><path d="M718 287v117" stroke="#DCE7FF" stroke-width="10"/><path d="M391 418h579" stroke="#92B1FF" stroke-opacity=".65" stroke-width="7"/><path d="M323 511h62m595 0h49" stroke="#A9C4FF" stroke-width="15" stroke-linecap="round"/>
-<circle cx="442" cy="582" r="66" fill="#18264A"/><circle cx="442" cy="582" r="36" fill="#D8E3FF"/><circle cx="442" cy="582" r="18" fill="#8198D5"/><circle cx="886" cy="582" r="66" fill="#18264A"/><circle cx="886" cy="582" r="36" fill="#D8E3FF"/><circle cx="886" cy="582" r="18" fill="#8198D5"/>
-<rect x="124" y="670" width="250" height="42" rx="21" fill="#fff" fill-opacity=".8"/><circle cx="150" cy="691" r="6" fill="#D89A35"/><text x="169" y="697" fill="#66779F" font-family="Arial,sans-serif" font-size="15" font-weight="700" letter-spacing="1">TEMPORARY PROJECT ART</text></svg>
+  <defs>
+    <linearGradient id="bg" x1="80" y1="30" x2="1110" y2="800" gradientUnits="userSpaceOnUse"><stop stop-color="#1B2A1D"/><stop offset=".55" stop-color="#101810"/><stop offset="1" stop-color="#080C09"/></linearGradient>
+    <linearGradient id="car" x1="310" y1="320" x2="890" y2="610" gradientUnits="userSpaceOnUse"><stop stop-color="#8CB64F"/><stop offset=".48" stop-color="#344B2C"/><stop offset="1" stop-color="#172319"/></linearGradient>
+    <linearGradient id="glass" x1="480" y1="300" x2="800" y2="420" gradientUnits="userSpaceOnUse"><stop stop-color="#C6D7BC"/><stop offset="1" stop-color="#536957"/></linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="matrix(0 330 -480 0 890 270)" gradientUnits="userSpaceOnUse"><stop stop-color="#B7FF36" stop-opacity=".22"/><stop offset="1" stop-color="#B7FF36" stop-opacity="0"/></radialGradient>
+  </defs>
+  <path fill="url(#bg)" d="M0 0h1200v820H0z"/><path fill="url(#glow)" d="M0 0h1200v820H0z"/>
+  <path d="M0 620c185-90 377-115 565-76 224 47 427 25 635-54v330H0V620Z" fill="#B7FF36" fill-opacity=".035"/>
+  <g opacity=".22" stroke="#C6D7BC"><path d="M80 250h1040M80 290h1040M80 330h1040"/></g>
+  <rect x="76" y="66" width="1048" height="688" rx="30" fill="#0A100C" fill-opacity=".72" stroke="#D8E6CE" stroke-opacity=".16"/>
+  <text x="124" y="135" fill="#B7FF36" font-family="Arial,sans-serif" font-size="17" font-weight="700" letter-spacing="4">01 / RITEWHEEL AUTOS</text>
+  <text x="124" y="199" fill="#F1F4ED" font-family="Arial,sans-serif" font-size="56" font-weight="700" letter-spacing="-2">Find your next drive.</text>
+  <text x="126" y="239" fill="#A4ADA2" font-family="Arial,sans-serif" font-size="20">AUTOMOTIVE COMMERCE EXPERIENCE · CONCEPT PREVIEW</text>
+  <ellipse cx="622" cy="590" rx="360" ry="54" fill="#000" fill-opacity=".5"/>
+  <path d="M286 526c22-61 82-110 159-132l99-99c26-26 60-41 98-41h134c46 0 88 18 119 51l88 96c54 10 92 43 107 94l19 64c7 24-11 46-36 46H307c-28 0-45-26-35-52l14-27Z" fill="url(#car)" stroke="#B7FF36" stroke-opacity=".34" stroke-width="3"/>
+  <path d="m555 319-94 87h462l-74-84c-19-21-46-33-74-33H619c-24 0-47 10-64 30Z" fill="url(#glass)" stroke="#D8E6CE" stroke-opacity=".46" stroke-width="8"/>
+  <path d="M724 291v115" stroke="#D8E6CE" stroke-opacity=".45" stroke-width="8"/>
+  <path d="M367 431h594" stroke="#D8E6CE" stroke-opacity=".34" stroke-width="6"/>
+  <path d="M317 516h72m590 0h64" stroke="#B7FF36" stroke-width="13" stroke-linecap="round"/>
+  <circle cx="433" cy="580" r="66" fill="#0A100C" stroke="#5E7E4C" stroke-width="8"/><circle cx="433" cy="580" r="37" fill="#C9D9BC"/><circle cx="433" cy="580" r="17" fill="#536957"/>
+  <circle cx="891" cy="580" r="66" fill="#0A100C" stroke="#5E7E4C" stroke-width="8"/><circle cx="891" cy="580" r="37" fill="#C9D9BC"/><circle cx="891" cy="580" r="17" fill="#536957"/>
+  <rect x="124" y="675" width="260" height="42" rx="21" fill="#182219" stroke="#B7FF36" stroke-opacity=".32"/>
+  <circle cx="151" cy="696" r="6" fill="#B7FF36"/><text x="170" y="702" fill="#D9E4D3" font-family="Arial,sans-serif" font-size="14" font-weight="700" letter-spacing="1.4">TEMPORARY CONCEPT ART</text>
+</svg>
