@@ -29,7 +29,7 @@ const themeBootstrapScript = [
   "    document.documentElement.dataset.theme = 'light';",
   "  }",
   "})();",
-].join('\\n');
+].join('\n');
 
 export const metadata: Metadata = {
   title: {
