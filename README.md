@@ -1,11 +1,16 @@
 # portfolio
-this is my personal developer portfolio to send to non-technical business owners
 
-## Portfolio
+Personal developer portfolio for **Babatunde Abeeb Seun**, built to help business owners understand the work, see product projects and start a conversation.
 
-Personal portfolio for **Babatunde Abeeb Seun** — full-stack developer building websites, web applications, APIs and AI integrations.
+## Experience and stack
 
-The site helps business owners understand what can be built, see relevant product work and start a conversation.
+- Next.js App Router, React and TypeScript.
+- Custom CSS design tokens with equally considered light and dark themes.
+- Motion for React (Framer Motion lineage) for tactile interactions and restrained reveals.
+- Three.js, React Three Fiber and Drei for one deferred, interactive hero scene.
+- Space Grotesk display typography and Inter body typography.
+
+The light/dark choice follows the device preference on first visit and remembers a visitor's manual selection. The 3D scene has a lightweight CSS fallback and is skipped when reduced motion is preferred or WebGL is unavailable.
 
 ## Run locally
 
@@ -25,7 +30,7 @@ Useful checks:
 ## Temporary assets and details
 
 - The hero portrait is a replaceable placeholder. The professional photo and 3D-styled portrait will be added when the approved photo is ready.
-- Ritewheel Autos and FixTrust use clearly labelled temporary preview artwork. Replace it with current product screenshots before launch.
+- Ritewheel Autos and FixTrust use clearly labelled temporary concept artwork. Replace it with current product screenshots before launch.
 - LinkedIn and X are shown as “updating soon” until the correct public profile URLs are supplied.
 - The discovery-call button temporarily opens an email draft until the scheduling provider and booking URL are configured.
 - WhatsApp and email currently use the contact details approved for this portfolio.
