@@ -11,6 +11,24 @@ const HeroCanvas = dynamic(() => import("@/components/hero-canvas"), {
 
 type Theme = "light" | "dark";
 
+function subscribeToTheme(callback: () => void) {
+  const observer = new MutationObserver(callback);
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["data-theme"],
+  });
+
+  return () => observer.disconnect();
+}
+
+function getThemeSnapshot(): Theme {
+  return document.documentElement.dataset.theme === "dark" ? "dark" : "light";
+}
+
+function getServerThemeSnapshot(): Theme {
+  return "light";
+}
+
 function supportsWebGL() {
   try {
     const canvas = document.createElement("canvas");
@@ -43,7 +61,11 @@ export function HeroScene() {
 
     return () => window.cancelAnimationFrame(frame);
   }, []);
-  const [theme] = useThemeObserver();
+  const theme = useSyncExternalStore(
+    subscribeToTheme,
+    getThemeSnapshot,
+    getServerThemeSnapshot,
+  );
 
   const sceneEnabled = webglAvailable && isNearViewport;
   const animate = sceneEnabled && pageIsVisible && reducedMotion === false;
@@ -68,21 +90,3 @@ export function HeroScene() {
   );
 }
 
-function useThemeObserver(): [Theme] {
-  const themeRef = useRef<Theme>("light");
-  const theme = useSyncExternalStore(
-    (callback) => {
-      const observer = new MutationObserver(callback);
-      observer.observe(document.documentElement, {
-        attributes: true,
-        attributeFilter: ["data-theme"],
-      });
-
-      return () => observer.disconnect();
-    },
-    () => (document.documentElement.dataset.theme === "dark" ? "dark" : "light"),
-    () => themeRef.current,
-  );
-
-  return [theme];
-}
