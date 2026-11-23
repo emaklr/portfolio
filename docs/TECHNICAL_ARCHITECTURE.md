@@ -9,7 +9,7 @@ Core principles:
 - Client Components only where interactivity is required.
 - Static or dynamically rendered pages based on actual content needs.
 - The portrait is an optimised static asset derived from the developer's real photograph.
-- A separate interactive 3D hero scene may use WebGL, but it must be optional, lazy-loaded and backed by a lightweight fallback.
+- A separate interactive 3D hero scene may use WebGL, but it must be optional, lazy-loaded and backed by a lightweight CSS fallback when WebGL is unavailable. When reduced motion is requested, keep the 3D object visible but render it as a static scene.
 - The light/dark theme is applied before first paint and an explicit visitor choice is persisted.
 - No client-side data fetching for content that can be rendered at build time.
 - Keep third-party scripts and dependencies minimal.
@@ -47,7 +47,7 @@ Initial implementation baseline: Next.js 16.4.6, React 19.3.1 and TypeScript 5.9
 - A small pre-hydration script reads the saved theme or the operating-system preference and applies `data-theme` before the page paints. The theme toggle stores an explicit choice in localStorage.
 - Motion components are isolated in small client components for selected reveals and tactile links; ordinary page content remains server-rendered.
 - The portrait is a static optimised image placed inside a CSS perspective composition.
-- The interactive 3D hero scene is a separate client component, dynamically imported and deferred. Provide a CSS or static fallback when WebGL is unavailable or reduced motion is requested.
+- The interactive 3D hero scene is a separate client component, dynamically imported and deferred. Provide a CSS fallback when WebGL is unavailable. When reduced motion is requested, keep the 3D object visible but stop rotation, floating and pointer response.
 - Prefer CSS transitions for simple colour and focus states; do not use a JS animation library for every effect.
 - Do not hydrate sections that do not need browser interaction.
 - The booking CTA should normally be a normal external link. Consider an embedded scheduler only after measuring mobile performance and usability.
