@@ -1,14 +1,37 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
-import { Manrope } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 
-const manrope = Manrope({
+const displayFont = Space_Grotesk({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-manrope",
+  variable: "--font-display",
 });
+
+const bodyFont = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-body",
+});
+
+const themeBootstrapScript = \`(() => {
+  try {
+    const savedTheme = localStorage.getItem("bas-theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const initialTheme =
+      savedTheme === "light" || savedTheme === "dark"
+        ? savedTheme
+        : prefersDark
+          ? "dark"
+          : "light";
+
+    document.documentElement.dataset.theme = initialTheme;
+  } catch {
+    document.documentElement.dataset.theme = "light";
+  }
+})();\`;
 
 export const metadata: Metadata = {
   title: {
@@ -35,18 +58,22 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f7f8fa",
   width: "device-width",
   initialScale: 1,
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="en">
-      <body className={manrope.variable}>
-        <a className="skip-link" href="#main">Skip to content</a>
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeBootstrapScript }} />
+      </head>
+      <body className={displayFont.variable + " " + bodyFont.variable}>
+        <a className="skip-link" href="#main">
+          Skip to content
+        </a>
         <SiteHeader />
         {children}
       </body>
