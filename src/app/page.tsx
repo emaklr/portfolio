@@ -1,4 +1,6 @@
+import { ActionLink } from "@/components/action-link";
 import { ProjectCard } from "@/components/project-card";
+import { Reveal } from "@/components/reveal";
 import { processSteps, projects, services, site } from "@/data/site";
 
 const discoveryHref =
@@ -10,7 +12,7 @@ export default function HomePage() {
     <main id="main">
       <section className="hero-section section-shell" id="top">
         <div className="hero-grid container">
-          <div className="hero-copy">
+          <Reveal className="hero-copy" delay={0.06}>
             <p className="eyebrow">
               <span className="eyebrow-mark" />
               FULL-STACK DEVELOPER <span className="eyebrow-divider">/</span> WEB · API · AI
@@ -25,12 +27,12 @@ export default function HomePage() {
               value.
             </p>
             <div className="hero-actions">
-              <a className="button button-primary" href={discoveryHref}>
+              <ActionLink className="button button-primary" href={discoveryHref}>
                 Book a discovery call <span aria-hidden="true">↗</span>
-              </a>
-              <a className="button button-quiet" href="#work">
+              </ActionLink>
+              <ActionLink className="button button-quiet" href="#work">
                 Explore my work <span aria-hidden="true">↓</span>
-              </a>
+              </ActionLink>
             </div>
             {!site.bookingUrl && (
               <p className="setup-note">
@@ -42,9 +44,9 @@ export default function HomePage() {
               <span className="proof-line" />
               <span>From the first conversation to the finished product.</span>
             </div>
-          </div>
+          </Reveal>
 
-          <div className="hero-visual" aria-label="Profile portrait placeholder">
+          <Reveal className="hero-visual" delay={0.18}>
             <div className="visual-orbit orbit-one" aria-hidden="true" />
             <div className="visual-orbit orbit-two" aria-hidden="true" />
             <div className="visual-glow" aria-hidden="true" />
@@ -53,7 +55,8 @@ export default function HomePage() {
             </div>
             <div className="portrait-card">
               <div className="portrait-card-top">
-                <span>PERSONAL PROFILE</span><span className="portrait-card-index">01 / 01</span>
+                <span>PERSONAL PROFILE</span>
+                <span className="portrait-card-index">01 / 01</span>
               </div>
               <div
                 className="portrait-placeholder"
@@ -77,8 +80,8 @@ export default function HomePage() {
             <div className="floating-chip chip-bottom">
               <span className="chip-sparkle" aria-hidden="true">✳</span> Built around your goals
             </div>
-            <div className="visual-caption">A PLACEHOLDER FOR THE 3D PORTRAIT</div>
-          </div>
+            <div className="visual-caption">PORTRAIT PLACEHOLDER · REPLACE BEFORE LAUNCH</div>
+          </Reveal>
         </div>
         <div className="hero-bottom container">
           <span>WHAT I BUILD</span>
@@ -91,7 +94,7 @@ export default function HomePage() {
 
       <section className="section-shell work-section" id="work">
         <div className="container">
-          <div className="section-heading section-heading-row">
+          <Reveal className="section-heading section-heading-row">
             <div>
               <p className="eyebrow">SELECTED WORK</p>
               <h2>Products built around real problems.</h2>
@@ -100,10 +103,12 @@ export default function HomePage() {
               A look at the products I’m building, the problems behind them and
               the engineering that brings them together.
             </p>
-          </div>
+          </Reveal>
           <div className="project-grid">
-            {projects.map((project) => (
-              <ProjectCard key={project.name} project={project} />
+            {projects.map((project, index) => (
+              <Reveal className="project-reveal" key={project.name} delay={index * 0.1}>
+                <ProjectCard project={project} />
+              </Reveal>
             ))}
           </div>
           <p className="placeholder-disclaimer">
@@ -115,7 +120,7 @@ export default function HomePage() {
 
       <section className="section-shell services-section" id="services">
         <div className="container">
-          <div className="section-heading">
+          <Reveal className="section-heading">
             <p className="eyebrow">HOW I CAN HELP</p>
             <h2>Good software starts with understanding the problem.</h2>
             <p className="section-intro">
@@ -123,18 +128,20 @@ export default function HomePage() {
               connecting the tools you already use, we can work out the right
               solution together.
             </p>
-          </div>
+          </Reveal>
           <div className="service-grid">
-            {services.map((service) => (
-              <article className="service-card" key={service.number}>
-                <span className="service-number">{service.number}</span>
-                <div>
-                  <h3>{service.title}</h3>
-                  <p>{service.description}</p>
-                  <span className="service-detail">{service.detail}</span>
-                </div>
-                <span className="service-corner" aria-hidden="true">↗</span>
-              </article>
+            {services.map((service, index) => (
+              <Reveal className="service-reveal" key={service.number} delay={index * 0.07}>
+                <article className="service-card">
+                  <span className="service-number">{service.number}</span>
+                  <div>
+                    <h3>{service.title}</h3>
+                    <p>{service.description}</p>
+                    <span className="service-detail">{service.detail}</span>
+                  </div>
+                  <span className="service-corner" aria-hidden="true">↗</span>
+                </article>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -142,7 +149,7 @@ export default function HomePage() {
 
       <section className="section-shell process-section" id="process">
         <div className="container process-layout">
-          <div className="process-intro">
+          <Reveal className="process-intro">
             <p className="eyebrow">A CLEAR WAY FORWARD</p>
             <h2>From “I have an idea” to “It’s live.”</h2>
             <p>
@@ -150,29 +157,29 @@ export default function HomePage() {
               start by understanding what you need, then decide together what
               makes sense to build.
             </p>
-            <a className="text-link" href={discoveryHref}>
+            <ActionLink className="text-link" href={discoveryHref}>
               Let’s talk about your idea <span aria-hidden="true">↗</span>
-            </a>
-          </div>
-          <div className="process-list">
+            </ActionLink>
+          </Reveal>
+          <Reveal className="process-list" delay={0.12}>
             {processSteps.map((step) => (
               <article className="process-step" key={step.number}>
                 <span className="process-number">{step.number}</span>
                 <div><h3>{step.title}</h3><p>{step.description}</p></div>
               </article>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 
       <section className="section-shell about-section" id="about">
         <div className="container about-grid">
-          <div className="about-mark" aria-hidden="true">
+          <Reveal className="about-mark" aria-hidden="true">
             <div className="about-mark-ring" />
             <span>BAS</span>
             <small>BUILD · LEARN · IMPROVE</small>
-          </div>
-          <div className="about-copy">
+          </Reveal>
+          <Reveal className="about-copy" delay={0.12}>
             <p className="eyebrow">A LITTLE ABOUT ME</p>
             <h2>Curious about how things work. Serious about making them useful.</h2>
             <p>
@@ -188,19 +195,19 @@ export default function HomePage() {
               on the web.
             </p>
             <div className="about-links">
-              <a className="text-link" href={"mailto:" + site.email}>
+              <ActionLink className="text-link" href={"mailto:" + site.email}>
                 Email me <span aria-hidden="true">↗</span>
-              </a>
+              </ActionLink>
               <span className="coming-soon">CV PDF · coming soon</span>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       <section className="contact-section section-shell" id="contact">
         <div className="container contact-panel">
           <div className="contact-orb" aria-hidden="true" />
-          <div className="contact-content">
+          <Reveal className="contact-content">
             <p className="eyebrow eyebrow-light">HAVE SOMETHING IN MIND?</p>
             <h2>Let’s work out what we should build.</h2>
             <p>
@@ -208,22 +215,27 @@ export default function HomePage() {
               problem, explore the options and figure out a sensible next step.
             </p>
             <div className="contact-actions">
-              <a className="button button-light" href={discoveryHref}>
+              <ActionLink className="button button-light" href={discoveryHref}>
                 Book a discovery call <span aria-hidden="true">↗</span>
-              </a>
-              <a className="button button-outline-light" href={site.whatsappUrl} target="_blank" rel="noreferrer">
+              </ActionLink>
+              <ActionLink
+                className="button button-outline-light"
+                href={site.whatsappUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
                 Chat on WhatsApp <span aria-hidden="true">↗</span>
-              </a>
+              </ActionLink>
             </div>
             <p className="contact-email">
               Prefer email? <a href={"mailto:" + site.email}>{site.email}</a>
             </p>
-          </div>
-          <div className="contact-side-note">
+          </Reveal>
+          <Reveal className="contact-side-note" delay={0.14}>
             <span>THE FIRST STEP</span>
             <strong>A good conversation.</strong>
             <span>No pressure. No jargon. Just a clearer idea of what’s possible.</span>
-          </div>
+          </Reveal>
         </div>
       </section>
 
