@@ -16,22 +16,20 @@ const bodyFont = Inter({
   variable: "--font-body",
 });
 
-const themeBootstrapScript = \`(() => {
-  try {
-    const savedTheme = localStorage.getItem("bas-theme");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const initialTheme =
-      savedTheme === "light" || savedTheme === "dark"
-        ? savedTheme
-        : prefersDark
-          ? "dark"
-          : "light";
-
-    document.documentElement.dataset.theme = initialTheme;
-  } catch {
-    document.documentElement.dataset.theme = "light";
-  }
-})();\`;
+const themeBootstrapScript = [
+  "(() => {",
+  "  try {",
+  "    const savedTheme = localStorage.getItem('bas-theme');",
+  "    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;",
+  "    const initialTheme = savedTheme === 'light' || savedTheme === 'dark'",
+  "      ? savedTheme",
+  "      : prefersDark ? 'dark' : 'light';",
+  "    document.documentElement.dataset.theme = initialTheme;",
+  "  } catch {",
+  "    document.documentElement.dataset.theme = 'light';",
+  "  }",
+  "})();",
+].join('\\n');
 
 export const metadata: Metadata = {
   title: {
