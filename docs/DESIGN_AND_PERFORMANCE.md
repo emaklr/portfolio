@@ -32,7 +32,6 @@ Theme behaviour:
 
 ### Colour tokens
 
-| Token | Value | Use |
 |---|---|---|
 | Token | Light mode | Dark mode | Use |
 |---|---|---|---|
