@@ -1,10 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="820" viewBox="0 0 1200 820" fill="none">
-<defs><linearGradient id="bg" x1="130" y1="40" x2="1060" y2="790"><stop stop-color="#ECF7F1"/><stop offset="1" stop-color="#CDE7D9"/></linearGradient><linearGradient id="house" x1="365" y1="280" x2="800" y2="650"><stop stop-color="#23875F"/><stop offset="1" stop-color="#15573E"/></linearGradient></defs>
-<path fill="url(#bg)" d="M0 0h1200v820H0z"/><circle cx="980" cy="170" r="190" fill="#fff" fill-opacity=".38"/><circle cx="190" cy="660" r="210" fill="#fff" fill-opacity=".38"/><path d="M0 604c206-78 396-78 584-24 213 61 398 38 616-34v274H0V604Z" fill="#B9DCC9" fill-opacity=".65"/>
-<rect x="76" y="66" width="1048" height="688" rx="30" fill="#fff" fill-opacity=".48" stroke="#fff" stroke-opacity=".9"/>
-<text x="124" y="135" fill="#5A8C73" font-family="Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="4">FIXTRUST</text><text x="124" y="195" fill="#173D2D" font-family="Arial,sans-serif" font-size="54" font-weight="700">Build with confidence.</text><text x="126" y="233" fill="#6F907F" font-family="Arial,sans-serif" font-size="20">A temporary visual preview for the property project marketplace.</text>
-<ellipse cx="610" cy="585" rx="330" ry="58" fill="#174B37" fill-opacity=".17"/>
-<path d="m332 426 276-224 278 224v195c0 20-16 36-36 36H368c-20 0-36-16-36-36V426Z" fill="url(#house)"/><path d="m280 438 328-267 329 267-40 48-289-235-289 235-39-48Z" fill="#1B6547"/>
-<path d="M510 657V476c0-28 22-50 50-50h103c28 0 50 22 50 50v181" fill="#D8EEE2"/><path d="M560 657V486h103v171" fill="#9DCDB4"/><rect x="383" y="475" width="95" height="91" rx="9" fill="#D8EEE2"/><rect x="397" y="489" width="67" height="63" rx="5" fill="#83B99B"/><rect x="790" y="475" width="70" height="91" rx="9" fill="#D8EEE2"/><rect x="801" y="489" width="48" height="63" rx="4" fill="#83B99B"/>
-<rect x="824" y="278" width="185" height="78" rx="16" fill="#fff" fill-opacity=".92"/><circle cx="858" cy="317" r="14" fill="#DDF2E6"/><path d="m851 317 5 5 10-11" stroke="#23875F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><text x="885" y="313" fill="#2C684D" font-family="Arial,sans-serif" font-size="15" font-weight="700">Milestone</text><text x="885" y="335" fill="#7E9D8C" font-family="Arial,sans-serif" font-size="13">Progress tracked</text>
-<rect x="124" y="670" width="250" height="42" rx="21" fill="#fff" fill-opacity=".82"/><circle cx="150" cy="691" r="6" fill="#D89A35"/><text x="169" y="697" fill="#5F8A73" font-family="Arial,sans-serif" font-size="15" font-weight="700" letter-spacing="1">TEMPORARY PROJECT ART</text></svg>
+  <defs>
+    <linearGradient id="bg" x1="80" y1="20" x2="1120" y2="810" gradientUnits="userSpaceOnUse"><stop stop-color="#24392A"/><stop offset=".52" stop-color="#142318"/><stop offset="1" stop-color="#0A120C"/></linearGradient>
+    <linearGradient id="house" x1="355" y1="280" x2="830" y2="670" gradientUnits="userSpaceOnUse"><stop stop-color="#D9E8CC"/><stop offset="1" stop-color="#7E9C6E"/></linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="matrix(0 300 -460 0 900 250)" gradientUnits="userSpaceOnUse"><stop stop-color="#B7FF36" stop-opacity=".17"/><stop offset="1" stop-color="#B7FF36" stop-opacity="0"/></radialGradient>
+  </defs>
+  <path fill="url(#bg)" d="M0 0h1200v820H0z"/><path fill="url(#glow)" d="M0 0h1200v820H0z"/>
+  <path d="M0 626c205-88 398-89 588-31 209 65 398 31 612-43v268H0V626Z" fill="#B7FF36" fill-opacity=".035"/>
+  <g opacity=".19" stroke="#D9E8CC"><path d="M80 250h1040M80 290h1040M80 330h1040"/></g>
+  <rect x="76" y="66" width="1048" height="688" rx="30" fill="#0A120C" fill-opacity=".74" stroke="#D9E8CC" stroke-opacity=".17"/>
+  <text x="124" y="135" fill="#B7FF36" font-family="Arial,sans-serif" font-size="17" font-weight="700" letter-spacing="4">02 / FIXTRUST</text>
+  <text x="124" y="199" fill="#F1F4ED" font-family="Arial,sans-serif" font-size="56" font-weight="700" letter-spacing="-2">Build with clarity.</text>
+  <text x="126" y="239" fill="#A4ADA2" font-family="Arial,sans-serif" font-size="20">PROPERTY PROJECT MARKETPLACE · CONCEPT PREVIEW</text>
+  <ellipse cx="610" cy="625" rx="330" ry="38" fill="#000" fill-opacity=".4"/>
+  <path d="m330 430 278-226 280 226v190c0 21-17 38-38 38H368c-21 0-38-17-38-38V430Z" fill="url(#house)"/>
+  <path d="m278 441 330-268 331 268-40 48-291-235-290 235-40-48Z" fill="#B7FF36"/>
+  <path d="M510 657V478c0-28 22-50 50-50h101c28 0 50 22 50 50v179" fill="#253B29"/>
+  <path d="M563 657V487h96v170" fill="#B7FF36" fill-opacity=".3"/>
+  <rect x="382" y="476" width="92" height="87" rx="8" fill="#253B29"/><path d="M428 476v87m-46-43h92" stroke="#B7FF36" stroke-opacity=".8" stroke-width="5"/>
+  <rect x="782" y="476" width="75" height="87" rx="8" fill="#253B29"/><path d="M819 476v87m-37-43h75" stroke="#B7FF36" stroke-opacity=".8" stroke-width="5"/>
+  <rect x="816" y="279" width="194" height="86" rx="16" fill="#152419" stroke="#B7FF36" stroke-opacity=".6"/>
+  <circle cx="852" cy="322" r="15" fill="#B7FF36" fill-opacity=".18"/><path d="m845 322 5 5 10-11" stroke="#B7FF36" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="880" y="318" fill="#F1F4ED" font-family="Arial,sans-serif" font-size="15" font-weight="700">Milestone</text><text x="880" y="341" fill="#A4ADA2" font-family="Arial,sans-serif" font-size="13">Progress tracked</text>
+  <rect x="124" y="675" width="260" height="42" rx="21" fill="#18261B" stroke="#B7FF36" stroke-opacity=".32"/>
+  <circle cx="151" cy="696" r="6" fill="#B7FF36"/><text x="170" y="702" fill="#D9E4D3" font-family="Arial,sans-serif" font-size="14" font-weight="700" letter-spacing="1.4">TEMPORARY CONCEPT ART</text>
+</svg>
