@@ -1,5 +1,7 @@
-import { site } from "@/data/site";
+import { ActionLink } from "@/components/action-link";
 import { MobileNav } from "@/components/mobile-nav";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { site } from "@/data/site";
 
 const discoveryHref =
   site.bookingUrl ||
@@ -18,9 +20,10 @@ export function SiteHeader() {
           <a href="#process">Process</a>
           <a href="#about">About</a>
         </nav>
-        <a className="button button-small header-cta" href={discoveryHref}>
+        <ThemeToggle />
+        <ActionLink className="button button-small header-cta" href={discoveryHref}>
           Book a conversation <span aria-hidden="true">↗</span>
-        </a>
+        </ActionLink>
         <MobileNav />
       </div>
     </header>
