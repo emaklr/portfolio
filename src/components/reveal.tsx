@@ -1,19 +1,23 @@
 "use client";
 
-import type { ReactNode } from "react";
+import type { HTMLAttributes } from "react";
 import { motion, useReducedMotion } from "motion/react";
 
-type RevealProps = {
-  children: ReactNode;
-  className?: string;
+type RevealProps = HTMLAttributes<HTMLDivElement> & {
   delay?: number;
 };
 
-export function Reveal({ children, className, delay = 0 }: RevealProps) {
+export function Reveal({
+  children,
+  className,
+  delay = 0,
+  ...attributes
+}: RevealProps) {
   const reduceMotion = useReducedMotion();
 
   return (
     <motion.div
+      {...attributes}
       className={className}
       initial={reduceMotion ? false : { opacity: 0, y: 22 }}
       whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
