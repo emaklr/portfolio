@@ -2,17 +2,22 @@
 
 ## 1. Design direction — locked
 
-The portfolio uses a **light-first, premium editorial interface**. It should feel clear, confident, thoughtful and modern: a distinctive personal brand, not a generic developer template, an agency landing-page clone or a 3D experiment.
+The portfolio uses **two equally deliberate premium themes** with one consistent brand identity. The design should feel clear, confident, thoughtful and modern: a distinctive personal portfolio, not a generic developer template, an agency landing-page clone or a visual-effects demo.
 
-The visual system uses:
-- A warm near-white canvas, white surfaces and deep ink typography.
-- A restrained cobalt-blue accent for primary actions and key details.
-- Strong editorial typography, generous whitespace and clear hierarchy.
-- Large, carefully composed product imagery.
-- A professional avatar as the human focal point.
-- One restrained 3D hero enhancement that supports the message rather than competing with it.
+The visual direction combines cinematic luxury with restrained futuristic technology:
+- **Dark mode:** near-black and charcoal surfaces, soft-white typography, neon-lime accents, controlled light bloom and subtle luminous borders.
+- **Light mode:** warm ivory and off-white surfaces, deep ink typography, the same neon-lime signature accent used selectively, and forest-green supporting details.
+- Both themes share the same layouts, content, type scale, spacing and component hierarchy. Neither theme is a colour-inverted afterthought.
+- Strong modern display typography, generous whitespace and carefully composed product imagery.
+- A professional portrait remains the human focal point. A separate, carefully scoped 3D hero object can create depth and personality.
+- Motion is noticeable, smooth and premium. It gives feedback and guides attention without delaying navigation or reading.
 
-The light-first direction is settled. Do not reopen the light/dark/hybrid decision or add a theme switcher to v1.
+Theme behaviour:
+- Show a light/dark switch in the desktop header and mobile header/menu.
+- On first visit, follow the operating-system preference.
+- Remember an explicit visitor choice across sessions.
+- Apply the initial theme before the page paints to avoid a flash of the wrong theme.
+- Verify every section, card, form state and 3D material in both themes.
 
 ## 2. Brand and visual identity
 
@@ -21,28 +26,30 @@ The light-first direction is settled. Do not reopen the light/dark/hybrid decisi
 - Use a clean text wordmark; a complicated logo is not required.
 - Abeeb Digital Studio is a separate business founded by the developer. Mention it discreetly in the About section or footer; it must not replace the personal identity in the header, hero, metadata or primary calls to action.
 - Use one approved professional photograph consistently in the hero and About section. It should look polished, approachable and credible, not like a caricature or stiff corporate stock portrait. Prefer a natural expression, modern smart-casual styling and a clean neutral treatment. Do not fabricate a likeness.
-- The current hero uses a clearly labelled initials placeholder inside a CSS perspective card. Keep this slot the same size when the real photo arrives so replacing the asset does not require redesigning the layout.
-- Once the photo is supplied, create a polished 3D-styled portrait image from that actual photo and use it as an optimised static asset. This is a rendered image, not a promise of a rigged, interactive 3D character. Keep the 3D treatment lightweight; do not introduce WebGL merely to display the portrait.
+- The current hero uses a clearly labelled initials placeholder inside a CSS perspective card. Keep this slot replaceable until the real photograph arrives.
+- Once the photo is supplied, create a polished 3D-styled portrait image from that actual photo and use it as an optimised static asset. This is a rendered image, not a rigged 3D character.
+- The interactive 3D hero object is a separate design element. It may use WebGL through React Three Fiber, but must be deferred, optimised and backed by a lightweight fallback.
 
 ### Colour tokens
 
 | Token | Value | Use |
 |---|---|---|
-| Page background | #F7F8FA | Main canvas |
-| Surface | #FFFFFF | Cards, navigation and forms |
-| Primary text | #151B2B | Headings and important copy |
-| Secondary text | #626D80 | Supporting copy |
-| Accent | #3659E3 | Primary actions, links and highlights |
-| Accent hover | #2948C7 | Hover and pressed state |
-| Accent soft | #EEF2FF | Quiet emphasis and selected tags |
-| Border | #E4E8EF | Dividers, card edges and input borders |
-| Success | #18794E | Confirmation states |
-| Error | #B42318 | Validation and error states |
+| Token | Light mode | Dark mode | Use |
+|---|---|---|---|
+| Page background | #F4F3EE | #080B09 | Main canvas |
+| Surface | #FFFEFA | #101612 | Cards, navigation and panels |
+| Primary text | #171C19 | #F1F4ED | Headings and important copy |
+| Secondary text | #626A64 | #A4ADA2 | Supporting copy |
+| Signature accent | #B7FF36 | #B7FF36 | Primary actions and selective highlights |
+| Accent text | #31521F | #B7FF36 | Links and small accent labels with adequate contrast |
+| Supporting accent | Deep forest green | Muted luminous green | Secondary details |
+| Border | #DFE1D8 | #273128 | Dividers, card edges and fields |
+| Contact panel | Deep charcoal with subtle green light | Deep charcoal with subtle green light | Consistent final conversion section |
 
 Keep the accent restrained. Do not use gradients as a substitute for hierarchy. A subtle accent gradient may appear inside the 3D visual only if it survives contrast and performance checks.
 
 ### Typography and layout
-- Use Manrope as the primary type family with a system sans-serif fallback.
+- Use Space Grotesk for display headings and Inter for body text, with system fallbacks.
 - Load only the font weights actually used.
 - Use bold, compact display typography for the hero; body copy must remain highly readable.
 - Use sentence case for headings and buttons; avoid excessive uppercase labels.
@@ -172,16 +179,17 @@ Use real screenshots, short captions and a sensible image sequence. On mobile, i
 
 ## 7. Motion and 3D rules
 
-Motion should explain hierarchy, give feedback or add a small amount of personality. It must never delay reading or navigation.
+Motion should make the interface feel tactile and considered. The agreed intensity is **balanced: noticeable, smooth and premium**. It must never delay reading or navigation.
 
-- Use CSS for simple hover, focus and state transitions.
-- Use the motion library only where it adds clear value.
-- Restrict scroll reveals to subtle, once-only entrances; content must remain visible when animation is disabled.
-- Avoid parallax on essential content, scroll hijacking, animated counters, autoplay video and forced intro sequences.
-- Treat the 3D-styled portrait as a static optimised image asset; it does not need a WebGL renderer.
-- Keep CSS perspective layers decorative and lightweight. The portrait and core content must remain visible with CSS effects disabled.
-- Only consider a separate interactive 3D scene later if it adds a clear user benefit and passes performance testing.
-- Respect prefers-reduced-motion and provide an equally complete non-animated experience.
+- Use Motion for React (the current Framer Motion package lineage) for selected entrance, hover and tap interactions. Import from `motion/react`; do not add GSAP.
+- Use a restrained spring for button compression and release. The actual link or button action must happen immediately; motion is feedback, not a loading delay.
+- Use staggered hero copy reveals and subtle once-only section entrances. Content must remain visible when animation is disabled.
+- Use CSS for simple colour, border, focus and hover transitions.
+- Avoid scroll hijacking, animated counters, autoplay video, forced intro sequences and excessive parallax.
+- The portrait remains an optimised static image derived from the developer's actual photograph.
+- A separate abstract or product-inspired 3D hero visual may use Three.js, React Three Fiber and Drei. Defer loading until needed, pause or simplify when off-screen, and provide a static/CSS fallback.
+- Do not add WebGL to every card or section. No essential content or action may depend on the 3D scene.
+- Respect `prefers-reduced-motion`, touch devices and low-powered mobile hardware.
 
 ## 8. Responsive behaviour
 
@@ -251,14 +259,18 @@ Do not create an abstraction for every text block. Reuse should make the system 
 
 ## 12. Release acceptance checklist
 
-- [ ] Light-first visual direction, personal identity and accent system are consistent across routes.
+- [ ] Light and dark themes are equally polished, with consistent personal identity and signature accent across routes.
+- [ ] Initial theme follows system preference, a visitor's explicit choice persists, and no wrong-theme flash occurs.
+- [ ] Theme switch is usable by keyboard and on mobile.
 - [ ] Homepage hierarchy and conversion paths work without 3D.
 - [ ] Avatar and project assets are approved and optimised.
 - [ ] Navigation and mobile menu work.
 - [ ] Project facts, statuses, screenshots and live links are verified.
 - [ ] Discovery-call scheduler works in Africa/Lagos timezone.
 - [ ] WhatsApp link uses the approved number and pre-filled message.
-- [ ] Keyboard, contrast and reduced-motion checks pass.
+- [ ] Keyboard, contrast, both theme modes and reduced-motion checks pass.
+- [ ] Motion interactions feel responsive and do not delay actions.
+- [ ] The 3D hero has a tested lightweight fallback and does not block essential content.
 - [ ] No horizontal overflow at supported viewport sizes.
 - [ ] Production Lighthouse and Core Web Vitals are measured.
 - [ ] Booking, CV and contact journeys are tested on mobile and desktop.
