@@ -66,7 +66,8 @@ The first call is for understanding the business problem and discussing what sho
 - Discovery-call booking works from desktop and mobile.
 - WhatsApp opens the approved number with a useful pre-filled message.
 - CV download works.
-- Mobile, keyboard and reduced-motion experiences are fully usable.
+- Light and dark modes are equally polished, the preference persists, and the initial page has no wrong-theme flash.
+- Motion interactions are tactile but never delay actions; reduced-motion and mobile experiences remain fully usable.
 - Performance is measured on production builds and mobile-class devices.
 
 ## Scope for v1
