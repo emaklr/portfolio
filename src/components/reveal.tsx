@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import type { ReactNode } from "react";
 
@@ -11,19 +11,22 @@ type RevealProps = {
   "aria-hidden"?: boolean | "true" | "false";
 };
 
+const subscribeToHydration = () => () => {};
+const getClientHydrationSnapshot = () => true;
+const getServerHydrationSnapshot = () => false;
+
 export function Reveal({
   children,
   className,
   delay = 0,
   "aria-hidden": ariaHidden,
 }: RevealProps) {
+  const hydrated = useSyncExternalStore(
+    subscribeToHydration,
+    getClientHydrationSnapshot,
+    getServerHydrationSnapshot,
+  );
   const reduceMotion = useReducedMotion();
-  const [hydrated, setHydrated] = useState(false);
-
-  useEffect(() => {
-    setHydrated(true);
-  }, []);
-
   const shouldAnimate = hydrated && reduceMotion === false;
 
   return (
