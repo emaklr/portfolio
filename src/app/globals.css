@@ -232,16 +232,20 @@ summary:focus-visible {
   stroke-linejoin: round;
 }
 
-.theme-icon-moon {
+.theme-icon-sun {
   display: none;
+}
+
+.theme-icon-moon {
+  display: block;
 }
 
 :root[data-theme="dark"] .theme-icon-sun {
-  display: none;
+  display: block;
 }
 
 :root[data-theme="dark"] .theme-icon-moon {
-  display: block;
+  display: none;
 }
 
 .theme-toggle-text {
