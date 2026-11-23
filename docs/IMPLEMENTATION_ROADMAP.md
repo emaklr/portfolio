@@ -55,7 +55,7 @@
 ## Phase 3 — Hero 3D and motion refinement
 
 - [x] Design and implement one interactive Three.js / React Three Fiber hero visual.
-- [x] Lazy-load the 3D scene; provide a CSS fallback when WebGL is unavailable or reduced motion is enabled.
+- [x] Lazy-load the 3D scene; provide a CSS fallback when WebGL is unavailable and a static 3D rendering when reduced motion is enabled.
 - [x] Add subtle pointer response and slow movement without distracting from the headline.
 - [ ] Create a 3D-styled rendered portrait from the approved professional photograph.
 - [ ] Replace the initials placeholder without changing the hero layout.
@@ -63,7 +63,7 @@
 - [x] Add the first pass of Motion entrance, hover and press interactions across the site.
 - [ ] Test reduced-motion behaviour and verify the page remains complete without animation.
 
-**Current status:** The orbital scene is implemented as a lazy-loaded R3F canvas, animates only near the viewport, pauses when the tab is hidden, and is skipped for reduced-motion users or unsupported WebGL. Local build, device testing and visual tuning remain.
+**Current status:** The orbital scene is implemented as a lazy-loaded R3F canvas, animates only near the viewport, pauses when the tab is hidden, remains visible without movement for reduced-motion users, and falls back to CSS when WebGL is unavailable. Local build, device testing and visual tuning remain.
 
 **Exit condition:** The hero feels distinctive and tactile while remaining responsive, accessible and usable without WebGL or animation.
 
