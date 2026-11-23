@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useSyncExternalStore } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { useInView, usePageInView, useReducedMotion } from "motion/react";
 import dynamic from "next/dynamic";
 
@@ -26,24 +26,6 @@ function supportsWebGL() {
   }
 }
 
-let webglSupportCache: boolean | null = null;
-
-function subscribeToWebGLSupport() {
-  return () => {};
-}
-
-function getWebGLSupportSnapshot() {
-  if (webglSupportCache === null) {
-    webglSupportCache = supportsWebGL();
-  }
-
-  return webglSupportCache;
-}
-
-function getServerWebGLSupportSnapshot() {
-  return false;
-}
-
 export function HeroScene() {
   const containerRef = useRef<HTMLDivElement>(null);
   const isNearViewport = useInView(containerRef, {
@@ -52,11 +34,15 @@ export function HeroScene() {
   });
   const pageIsVisible = usePageInView();
   const reducedMotion = useReducedMotion();
-  const webglAvailable = useSyncExternalStore(
-    subscribeToWebGLSupport,
-    getWebGLSupportSnapshot,
-    getServerWebGLSupportSnapshot,
-  );
+  const [webglAvailable, setWebglAvailable] = useState(false);
+
+  useEffect(() => {
+    const frame = window.requestAnimationFrame(() => {
+      setWebglAvailable(supportsWebGL());
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
   const [theme] = useThemeObserver();
 
   const sceneEnabled = webglAvailable && isNearViewport;
@@ -72,7 +58,11 @@ export function HeroScene() {
       {sceneEnabled ? (
         <HeroCanvas theme={theme} animate={animate} />
       ) : (
-        <div className="hero-scene-fallback" />
+        <div className="hero-scene-fallback">
+          <span className="fallback-orbit fallback-orbit-one" />
+          <span className="fallback-orbit fallback-orbit-two" />
+          <span className="fallback-core" />
+        </div>
       )}
     </div>
   );
