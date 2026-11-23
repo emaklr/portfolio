@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useSyncExternalStore } from "react";
 import { useInView, usePageInView, useReducedMotion } from "motion/react";
 import dynamic from "next/dynamic";
 
@@ -26,6 +26,24 @@ function supportsWebGL() {
   }
 }
 
+let webglSupportCache: boolean | null = null;
+
+function subscribeToWebGLSupport() {
+  return () => {};
+}
+
+function getWebGLSupportSnapshot() {
+  if (webglSupportCache === null) {
+    webglSupportCache = supportsWebGL();
+  }
+
+  return webglSupportCache;
+}
+
+function getServerWebGLSupportSnapshot() {
+  return false;
+}
+
 export function HeroScene() {
   const containerRef = useRef<HTMLDivElement>(null);
   const isNearViewport = useInView(containerRef, {
@@ -34,39 +52,15 @@ export function HeroScene() {
   });
   const pageIsVisible = usePageInView();
   const reducedMotion = useReducedMotion();
-  const [theme, setTheme] = useState<Theme>("light");
-  const [webglAvailable, setWebglAvailable] = useState(false);
-  const [checked, setChecked] = useState(false);
+  const webglAvailable = useSyncExternalStore(
+    subscribeToWebGLSupport,
+    getWebGLSupportSnapshot,
+    getServerWebGLSupportSnapshot,
+  );
+  const [theme] = useThemeObserver();
 
-  useEffect(() => {
-    const root = document.documentElement;
-
-    const readTheme = () => {
-      setTheme(root.dataset.theme === "dark" ? "dark" : "light");
-    };
-
-    readTheme();
-
-    const observer = new MutationObserver(readTheme);
-    observer.observe(root, {
-      attributes: true,
-      attributeFilter: ["data-theme"],
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const supported = supportsWebGL();
-    setWebglAvailable(supported);
-    setChecked(true);
-  }, []);
-
-  const sceneEnabled =
-    checked &&
-    webglAvailable &&
-    reducedMotion === false &&
-    isNearViewport;
+  const sceneEnabled = webglAvailable && isNearViewport;
+  const animate = sceneEnabled && pageIsVisible && reducedMotion === false;
 
   return (
     <div
@@ -76,10 +70,29 @@ export function HeroScene() {
       aria-hidden="true"
     >
       {sceneEnabled ? (
-        <HeroCanvas theme={theme} active={pageIsVisible} />
+        <HeroCanvas theme={theme} animate={animate} />
       ) : (
         <div className="hero-scene-fallback" />
       )}
     </div>
   );
+}
+
+function useThemeObserver(): [Theme] {
+  const themeRef = useRef<Theme>("light");
+  const theme = useSyncExternalStore(
+    (callback) => {
+      const observer = new MutationObserver(callback);
+      observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["data-theme"],
+      });
+
+      return () => observer.disconnect();
+    },
+    () => (document.documentElement.dataset.theme === "dark" ? "dark" : "light"),
+    () => themeRef.current,
+  );
+
+  return [theme];
 }
