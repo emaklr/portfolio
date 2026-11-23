@@ -4,7 +4,9 @@
 
 - [x] Confirm target audience and positioning.
 - [x] Lock personal-brand direction and secondary Abeeb Digital Studio mention.
-- [x] Lock light-first visual direction and restrained 3D approach.
+- [x] Lock the dual-theme luxury direction: cinematic dark mode and refined light mode.
+- [x] Lock balanced Motion for React interactions; no GSAP.
+- [x] Agree on a deferred interactive 3D hero scene and a replaceable real-photo portrait workflow.
 - [x] Establish core service areas: websites, web applications, backend/APIs and AI integration.
 - [x] Establish primary booking CTA and WhatsApp alternative.
 - [x] Define homepage, project and case-study experience.
@@ -24,9 +26,11 @@
 ## Phase 1 — Project foundation
 
 - [x] Initialise Next.js App Router with TypeScript.
-- [x] Add the light-first global CSS design tokens and responsive base styles (custom CSS; no Tailwind dependency).
+- [x] Add shared light and dark CSS design tokens and responsive base styles (custom CSS; no Tailwind dependency).
+- [x] Add a theme toggle, system-preference default and persisted visitor choice with pre-paint initialization.
+- [x] Add Motion for React and reusable reveal/tactile-action components.
 - [x] Configure ESLint.
-- [x] Establish metadata, Manrope font loading and root layout.
+- [x] Establish metadata, Space Grotesk / Inter font loading and root layout.
 - [x] Add reusable navigation and project-card components.
 - [x] Add typed public content and contact configuration.
 - [ ] Add CI checks for lint, typecheck and build.
@@ -48,16 +52,18 @@
 
 **Exit condition:** All key information and contact paths are available and usable without 3D.
 
-## Phase 3 — Portrait asset and motion refinement
+## Phase 3 — Hero 3D and motion refinement
 
-- [ ] Create a 3D-styled rendered portrait from the approved professional photo.
+- [ ] Design and implement one interactive Three.js / React Three Fiber hero visual.
+- [ ] Lazy-load the 3D scene and provide a static/CSS fallback for mobile, low-powered devices and unsupported WebGL.
+- [ ] Add subtle pointer response and slow movement without distracting from the headline.
+- [ ] Create a 3D-styled rendered portrait from the approved professional photograph.
 - [ ] Replace the initials placeholder without changing the hero layout.
 - [ ] Optimise the final portrait image and provide responsive dimensions.
-- [ ] Review CSS perspective details and simplify them on mobile.
-- [ ] Add motion only where it improves feedback or hierarchy.
+- [ ] Refine Motion entrance, hover and press interactions across the site.
 - [ ] Test reduced-motion behaviour and verify the page remains complete without animation.
 
-**Exit condition:** The personal portrait feels distinctive while remaining a lightweight static asset; no WebGL runtime is required for the portrait.
+**Exit condition:** The hero feels distinctive and tactile while remaining responsive, accessible and usable without WebGL or animation.
 
 ## Phase 4 — Project case studies and CV
 
@@ -89,7 +95,7 @@
 - [ ] Run Playwright tests for navigation, project routes, booking, WhatsApp, contact and CV.
 - [ ] Test keyboard navigation and visible focus.
 - [ ] Test mobile and tablet layouts.
-- [ ] Test reduced motion and no-WebGL fallback.
+- [ ] Test both themes, persistence, reduced motion and no-WebGL fallback.
 - [ ] Check SEO metadata and social previews.
 - [ ] Measure production Lighthouse and Core Web Vitals.
 - [ ] Verify production email delivery, booking confirmation, WhatsApp link and CV download.
