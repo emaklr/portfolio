@@ -24,7 +24,7 @@ export function Reveal({
     setHydrated(true);
   }, []);
 
-  const shouldAnimate = hydrated && !reduceMotion;
+  const shouldAnimate = hydrated && reduceMotion === false;
 
   return (
     <motion.div
