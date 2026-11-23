@@ -1,26 +1,37 @@
 "use client";
 
-import type { HTMLAttributes } from "react";
+import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
+import type { ReactNode } from "react";
 
-type RevealProps = HTMLAttributes<HTMLDivElement> & {
+type RevealProps = {
+  children: ReactNode;
+  className?: string;
   delay?: number;
+  "aria-hidden"?: boolean | "true" | "false";
 };
 
 export function Reveal({
   children,
   className,
   delay = 0,
-  ...attributes
+  "aria-hidden": ariaHidden,
 }: RevealProps) {
   const reduceMotion = useReducedMotion();
+  const [hydrated, setHydrated] = useState(false);
+
+  useEffect(() => {
+    setHydrated(true);
+  }, []);
+
+  const shouldAnimate = hydrated && !reduceMotion;
 
   return (
     <motion.div
-      {...attributes}
       className={className}
-      initial={reduceMotion ? false : { opacity: 0, y: 22 }}
-      whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+      aria-hidden={ariaHidden}
+      initial={shouldAnimate ? { opacity: 0, y: 22 } : false}
+      whileInView={shouldAnimate ? { opacity: 1, y: 0 } : undefined}
       viewport={{ once: true, amount: 0.16 }}
       transition={{
         duration: 0.72,
