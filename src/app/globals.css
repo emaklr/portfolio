@@ -468,6 +468,28 @@ summary:focus-visible {
   isolation: isolate;
 }
 
+.hero-scene {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  overflow: visible;
+  pointer-events: auto;
+}
+
+.hero-scene canvas {
+  display: block;
+  touch-action: pan-y;
+}
+
+.hero-scene-fallback {
+  position: absolute;
+  inset: 12%;
+  border: 1px solid color-mix(in srgb, var(--accent-ink) 14%, transparent);
+  border-radius: 50%;
+  transform: rotateX(62deg) rotateZ(-24deg);
+  box-shadow: 0 0 0 24px color-mix(in srgb, var(--accent-ink) 3%, transparent);
+}
+
 .visual-glow {
   position: absolute;
   width: 82%;
