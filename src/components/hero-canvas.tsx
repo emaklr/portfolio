@@ -7,10 +7,16 @@ import type { Group } from "three";
 
 type HeroCanvasProps = {
   theme: "light" | "dark";
-  active: boolean;
+  animate: boolean;
 };
 
-function OrbitalSculpture({ theme }: { theme: "light" | "dark" }) {
+function OrbitalSculpture({
+  theme,
+  animate,
+}: {
+  theme: "light" | "dark";
+  animate: boolean;
+}) {
   const sculptureRef = useRef<Group>(null);
   const isDark = theme === "dark";
   const lime = "#B7FF36";
@@ -18,26 +24,26 @@ function OrbitalSculpture({ theme }: { theme: "light" | "dark" }) {
   const core = isDark ? "#17241A" : "#DCE7CE";
 
   useFrame((state, delta) => {
-    if (!sculptureRef.current) return;
+    if (!sculptureRef.current || !animate) return;
 
-    const targetY = state.pointer.x * 0.16 + 0.08;
     const targetX = -state.pointer.y * 0.12;
+    const targetZ = state.pointer.x * 0.1;
 
-    sculptureRef.current.rotation.y +=
-      (targetY - sculptureRef.current.rotation.y) *
-      Math.min(delta * 2.2, 1);
-
+    sculptureRef.current.rotation.y += delta * 0.075;
     sculptureRef.current.rotation.x +=
       (targetX - sculptureRef.current.rotation.x) *
-      Math.min(delta * 2.2, 1);
+      Math.min(delta * 1.8, 1);
+    sculptureRef.current.rotation.z +=
+      (targetZ - sculptureRef.current.rotation.z) *
+      Math.min(delta * 1.8, 1);
   });
 
   return (
     <Float
-      speed={0.48}
-      rotationIntensity={0.08}
-      floatIntensity={0.1}
-      floatingRange={[-0.045, 0.045]}
+      speed={animate ? 0.42 : 0}
+      rotationIntensity={animate ? 0.055 : 0}
+      floatIntensity={animate ? 0.08 : 0}
+      floatingRange={[-0.035, 0.035]}
     >
       <group ref={sculptureRef}>
         <mesh rotation={[1.13, 0.28, -0.24]}>
@@ -124,14 +130,14 @@ function OrbitalSculpture({ theme }: { theme: "light" | "dark" }) {
   );
 }
 
-export default function HeroCanvas({ theme, active }: HeroCanvasProps) {
+export default function HeroCanvas({ theme, animate }: HeroCanvasProps) {
   const isDark = theme === "dark";
 
   return (
     <Canvas
-      camera={{ position: [0, 0, 5.6], fov: 42 }}
-      dpr={[1, 1.3]}
-      frameloop={active ? "always" : "never"}
+      camera={{ position: [0, 0, 6.15], fov: 42 }}
+      dpr={[1, 1.25]}
+      frameloop={animate ? "always" : "demand"}
       gl={{
         alpha: true,
         antialias: false,
@@ -159,7 +165,7 @@ export default function HeroCanvas({ theme, active }: HeroCanvasProps) {
         intensity={0.8}
         distance={6}
       />
-      <OrbitalSculpture theme={theme} />
+      <OrbitalSculpture theme={theme} animate={animate} />
     </Canvas>
   );
 }
