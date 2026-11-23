@@ -8,8 +8,9 @@ Core principles:
 - Server Components by default.
 - Client Components only where interactivity is required.
 - Static or dynamically rendered pages based on actual content needs.
-- The 3D-styled portrait is an optimised static asset; do not load a WebGL renderer just to display it.
-- Any future interactive 3D scene must be optional and deferred.
+- The portrait is an optimised static asset derived from the developer's real photograph.
+- A separate interactive 3D hero scene may use WebGL, but it must be optional, lazy-loaded and backed by a lightweight fallback.
+- The light/dark theme is applied before first paint and an explicit visitor choice is persisted.
 - No client-side data fetching for content that can be rendered at build time.
 - Keep third-party scripts and dependencies minimal.
 - Use an external booking provider rather than building a scheduling system.
@@ -21,8 +22,9 @@ Core principles:
 | Framework | Next.js App Router | Routing, metadata, server rendering, static generation and route handlers |
 | Language | TypeScript | Typed content models and safer refactoring |
 | Styling | Custom global CSS and design tokens | Bespoke visual system with a small dependency footprint |
-| 3D | Optimised 3D-styled portrait image + CSS perspective | Distinctive visual identity without a WebGL runtime for v1 |
-| Motion | CSS transitions first; Motion only if later justified | Avoid shipping a motion dependency for simple effects |
+| 3D | Three.js + React Three Fiber + Drei for one deferred hero scene; static 3D-styled portrait image + CSS fallback | Real depth in the hero without turning every section into a WebGL scene |
+| Motion | Motion for React (Framer Motion lineage) + CSS transitions | Tactile press feedback, restrained reveals and interactive movement; no GSAP |
+| Themes | CSS custom properties + a small client-side theme toggle and pre-hydration bootstrap | Light and dark themes share one component system without a flash on initial load |
 | Icons | Text arrows and lightweight inline SVG | Avoid an icon package for a small number of visual cues |
 | Forms | Native HTML controls initially | Keep the first contact experience simple; add a form library only if a form is implemented |
 | Validation | Server-side validation if a form is added | Validate untrusted input at the server boundary |
@@ -35,15 +37,18 @@ Core principles:
 | E2E testing | Playwright | Key journey and responsive browser testing |
 | Linting | ESLint | Static code quality checks |
 
-Initial implementation baseline: Next.js 16.4.6, React 19.3.1 and TypeScript 5.9.x, with Node.js 20.9 or later. The project currently uses CSS rather than Tailwind and does not install Three.js, React Three Fiber, Motion, a form library, Zod or Resend. Add those only when an approved feature requires them. The exact dependency versions are recorded in package.json.
+Initial implementation baseline: Next.js 16.4.6, React 19.3.1 and TypeScript 5.9.x, with Node.js 20.9 or later. The project uses custom CSS rather than Tailwind and now includes Motion for React for selected interactions. The interactive Three.js / React Three Fiber hero scene is a subsequent implementation step; do not add its dependencies until that scene is built. No form library, Zod or Resend is installed. The exact dependency versions are recorded in package.json.
 
 ## 3. Rendering and component strategy
 
 - Homepage and project content should be Server Components wherever possible.
 - Project case studies should use static generation from typed local data.
-- Keep page content server-rendered. The header uses a small client-side mobile-menu control so it closes after a visitor selects a section.
-- The 3D-styled portrait is a static optimised image placed inside a CSS perspective composition. No client-side WebGL scene is required for v1.
-- Prefer CSS transitions for simple hover/focus states; do not use a JS animation library for every effect.
+- Keep page content server-rendered. The header uses a small client-side mobile-menu control and a theme switch.
+- A small pre-hydration script reads the saved theme or the operating-system preference and applies `data-theme` before the page paints. The theme toggle stores an explicit choice in localStorage.
+- Motion components are isolated in small client components for selected reveals and tactile links; ordinary page content remains server-rendered.
+- The portrait is a static optimised image placed inside a CSS perspective composition.
+- The interactive 3D hero scene is a separate client component, dynamically imported and deferred. Provide a CSS or static fallback when WebGL is unavailable or reduced motion is requested.
+- Prefer CSS transitions for simple colour and focus states; do not use a JS animation library for every effect.
 - Do not hydrate sections that do not need browser interaction.
 - The booking CTA should normally be a normal external link. Consider an embedded scheduler only after measuring mobile performance and usability.
 
