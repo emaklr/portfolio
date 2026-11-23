@@ -1,5 +1,6 @@
 import { ActionLink } from "@/components/action-link";
 import { ProjectCard } from "@/components/project-card";
+import { HeroScene } from "@/components/hero-scene";
 import { Reveal } from "@/components/reveal";
 import { processSteps, projects, services, site } from "@/data/site";
 
@@ -50,6 +51,7 @@ export default function HomePage() {
             <div className="visual-orbit orbit-one" aria-hidden="true" />
             <div className="visual-orbit orbit-two" aria-hidden="true" />
             <div className="visual-glow" aria-hidden="true" />
+            <HeroScene />
             <div className="floating-chip chip-top">
               <span className="chip-dot" /> Thoughtful by design
             </div>
