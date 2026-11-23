@@ -10,8 +10,9 @@ A high-performance personal portfolio that helps non-technical business owners u
 - The public identity is Babatunde Abeeb Seun, with a professional portrait to be supplied later.
 - Until the photo is ready, the homepage uses a clearly labelled replaceable initials placeholder. The photo can later be converted into a 3D-styled rendered portrait without delaying the rest of the build.
 - Abeeb Digital Studio is a separate business founded by the developer and appears as a secondary detail, not the main brand.
-- The site uses a light-first, premium editorial visual direction with a restrained 3D hero enhancement.
-- Do not add a theme switcher or reopen the light/dark/hybrid decision for v1.
+- The site uses two equally considered premium themes: cinematic near-black with neon-lime lighting, and warm ivory with deep ink and forest-green details.
+- Visitors can switch between light and dark modes; first visit follows the device preference and a manual choice is remembered.
+- Use balanced, deliberate Motion for React interactions and one carefully scoped interactive 3D hero scene with a lightweight fallback. The actual portrait must come from the developer's supplied photograph; do not fabricate a likeness.
 
 ## Primary audience
 
